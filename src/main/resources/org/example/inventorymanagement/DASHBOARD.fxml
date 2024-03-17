@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.DashboardController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff61f" height="38.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Label layoutX="6.0" layoutY="7.0" prefHeight="28.0" prefWidth="135.0" text="TECHCARE STORE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnDashboard" layoutY="38.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="68.0" prefWidth="88.0" text="DASHBOARD" />
+      <Button fx:id="btnCashier" layoutY="106.0" mnemonicParsing="false" onAction="#switchToCashier" prefHeight="68.0" prefWidth="88.0" text="CASHIER" />
+      <Button fx:id="btnOrderList" layoutY="174.0" mnemonicParsing="false" onAction="#switchToOrderList" prefHeight="68.0" prefWidth="88.0" text="ORDER LIST" />
+      <Button fx:id="btnInventory" layoutY="242.0" mnemonicParsing="false" onAction="#switchToInventory" prefHeight="68.0" prefWidth="88.0" text="INVENTORY" />
+      <Button fx:id="btnMoney" layoutY="310.0" mnemonicParsing="false" onAction="#switchToMonetary" prefHeight="68.0" prefWidth="88.0" text="MONEY " />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutX="88.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="512.0" />
+      <Label layoutX="101.0" layoutY="51.0" prefHeight="28.0" prefWidth="222.0" text="DASHBOARD">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="101.0" layoutY="106.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="ITEM ADDED" />
+      <Button layoutX="197.0" layoutY="106.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="ITEM ADDED" />
+      <Button layoutX="300.0" layoutY="106.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="ITEM ADDED" />
+      <Separator layoutX="426.0" layoutY="91.0" orientation="VERTICAL" prefHeight="309.0" prefWidth="0.0" />
+      <DatePicker layoutX="99.0" layoutY="202.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="163.0" layoutX="97.0" layoutY="229.0" stroke="BLACK" strokeType="INSIDE" width="324.0" />
+      <Label layoutX="101.0" layoutY="177.0" prefHeight="27.0" prefWidth="174.0" text="REVENUE &amp; PROFIT">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="101.0" layoutY="250.0" prefHeight="27.0" prefWidth="85.0" text="REVENUE : RM" />
+      <Label layoutX="111.0" layoutY="342.0" prefHeight="27.0" prefWidth="67.0" text="PROFIT : RM" />
+      <Label layoutX="108.0" layoutY="297.0" prefHeight="27.0" prefWidth="75.0" text="TARGET : RM" />
+      <Label layoutX="180.0" layoutY="255.0" text="Label" />
+      <Label layoutX="180.0" layoutY="301.0" text="Label" />
+      <Label layoutX="180.0" layoutY="347.0" text="Label" />
+      <PieChart layoutX="215.0" layoutY="236.0" prefHeight="150.0" prefWidth="198.0" title="PIE CHART" />
+      <Separator layoutX="209.0" layoutY="233.0" opacity="0.34" orientation="VERTICAL" prefHeight="156.0" prefWidth="6.0" />
+      <Label layoutX="449.0" layoutY="93.0" text="TODAY SALES">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="488.0" layoutY="130.0" text="Label">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="426.0" layoutY="174.0" prefHeight="5.0" prefWidth="174.0" />
+      <TreeTableView layoutX="439.0" layoutY="208.0" prefHeight="178.0" prefWidth="149.0">
+        <columns>
+          <TreeTableColumn prefWidth="74.0" text="C1" />
+          <TreeTableColumn prefWidth="76.0" text="C2" />
+            <TreeTableColumn prefWidth="74.0" text="C1" />
+        </columns>
+      </TreeTableView>
+      <Label layoutX="443.0" layoutY="177.0" text="MINI INVENTORY">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
