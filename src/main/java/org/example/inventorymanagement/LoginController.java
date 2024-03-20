@@ -19,8 +19,8 @@ public class LoginController {
 
     public void loginButton(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Conformation");
-        alert.setHeaderText("Look, a Confirmation Dialog");
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Do you want to continue?");
 
         Optional<ButtonType> result = alert.showAndWait();
         //noinspection OptionalGetWithoutIsPresent

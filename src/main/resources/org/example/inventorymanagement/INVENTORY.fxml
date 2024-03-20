@@ -29,10 +29,10 @@
          </font>
       </Label>
       <Separator layoutX="88.0" layoutY="138.0" prefHeight="8.0" prefWidth="512.0" />
-      <Button layoutX="99.0" layoutY="97.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" text="ADD UTENSIL" />
-      <Button layoutX="197.0" layoutY="97.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="112.0" text="REMOVE UTENSIL" />
-      <Button layoutX="315.0" layoutY="97.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="135.0" text="ADD INGEREDIENT" />
-      <Button layoutX="455.0" layoutY="97.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="135.0" text="REMOVE INGREDIENT" />
+      <Button fx:id="btnAddUtensil" layoutX="99.0" layoutY="97.0" mnemonicParsing="false" onAction="#openAddUtensil" prefHeight="38.0" prefWidth="94.0" text="ADD UTENSIL" />
+      <Button fx:id="btnRemoveUtensil" layoutX="197.0" layoutY="97.0" mnemonicParsing="false" onAction="#openRemoveUtensil" prefHeight="38.0" prefWidth="112.0" text="REMOVE UTENSIL" />
+      <Button fx:id="btnAddIngredient" layoutX="315.0" layoutY="97.0" mnemonicParsing="false" onAction="#openAddIngredient" prefHeight="38.0" prefWidth="135.0" text="ADD INGEREDIENT" />
+      <Button fx:id="btnRemoveIngredient" layoutX="455.0" layoutY="97.0" mnemonicParsing="false" onAction="#openRemoveIngredient" prefHeight="38.0" prefWidth="135.0" text="REMOVE INGREDIENT" />
       <Separator layoutX="340.0" layoutY="141.0" orientation="VERTICAL" prefHeight="259.0" prefWidth="0.0" />
       <Label layoutX="93.0" layoutY="142.0" prefHeight="28.0" prefWidth="222.0" text="INGREDIENT">
          <font>
