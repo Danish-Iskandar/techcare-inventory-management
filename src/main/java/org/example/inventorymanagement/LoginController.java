@@ -49,13 +49,13 @@ public class LoginController extends Component {
         String username = txtUsername.getText();
         String password = txtPassword.getText();
 
-        user = getAuthenticatedUser(username, password);
+        user = getAuthenticatedUser(username, password, event);
 
 
 
     }
     public User user;
-    private User getAuthenticatedUser(String username, String password) {
+    private User getAuthenticatedUser(String username, String password, ActionEvent event) {
         User user = null;
 
         final String DBLink= "jdbc:mysql://localhost:3306/mysql";
@@ -78,6 +78,15 @@ public class LoginController extends Component {
                 user.username = resultSet.getString("Username");
                 user.password = resultSet.getString("Password");
                 user.accesslevel = resultSet.getString("Admin Access");
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("User not found. Please try again...");
             }
 
         }catch(Exception e){
