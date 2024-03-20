@@ -49,6 +49,7 @@ public class LoginController extends Component {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("ERROR");
                     alert.setHeaderText("User not found. Please try again...");
+                    alert.showAndWait();
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
