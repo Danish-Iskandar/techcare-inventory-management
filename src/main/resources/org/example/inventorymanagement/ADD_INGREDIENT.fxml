@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.AddIngredientController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff61f" height="38.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Label layoutX="6.0" layoutY="7.0" prefHeight="28.0" prefWidth="135.0" text="TECHCARE STORE">
@@ -16,11 +16,11 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button layoutY="38.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="DASHBOARD" />
-      <Button layoutY="106.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="CASHIER" />
-      <Button layoutY="174.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="ORDER LIST" />
-      <Button layoutY="242.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="INVENTORY" />
-      <Button layoutY="310.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="MONEY " />
+      <Button disable="true" layoutY="38.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="DASHBOARD" />
+      <Button disable="true" layoutY="106.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="CASHIER" />
+      <Button disable="true" layoutY="174.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="ORDER LIST" />
+      <Button disable="true" layoutY="242.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="INVENTORY" />
+      <Button disable="true" layoutY="310.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="88.0" text="MONEY " />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutX="88.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="512.0" />
       <Label layoutX="101.0" layoutY="51.0" prefHeight="28.0" prefWidth="222.0" text="ADD INGREDIENT">
          <font>
@@ -50,7 +50,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="422.0" layoutY="235.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="73.0" text="DONE" />
-      <Button layoutX="503.0" layoutY="235.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="73.0" text="CANCEL" />
+      <Button fx:id="btnOk" layoutX="422.0" layoutY="235.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="73.0" text="DONE" />
+      <Button fx:id="btnCancel" layoutX="503.0" layoutY="235.0" mnemonicParsing="false" onAction="#setBtnCancel" prefHeight="28.0" prefWidth="73.0" text="CANCEL" />
    </children>
 </AnchorPane>

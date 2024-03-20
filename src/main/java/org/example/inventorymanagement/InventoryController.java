@@ -5,7 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -15,6 +17,11 @@ public class InventoryController {
     public Button btnOrderList;
     public Button btnInventory;
     public Button btnMoney;
+    public Button btnAddUtensil;
+    public Button btnRemoveUtensil;
+    public Button btnAddIngredient;
+    public Button btnRemoveIngredient;
+
     public void switchToDashboard(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -46,6 +53,34 @@ public class InventoryController {
     public void switchToMonetary(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("MONETARY.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void openAddUtensil(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ADD_UTENSIL.fxml"));
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void openAddIngredient(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ADD_INGREDIENT.fxml"));
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void openRemoveUtensil(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("REMOVE_UTENSIL.fxml"));
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void openRemoveIngredient(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("REMOVE_INGREDIENT.fxml"));
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setScene(scene);
         stage.show();
