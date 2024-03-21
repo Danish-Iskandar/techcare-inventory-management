@@ -71,42 +71,7 @@ public class CashierController {
         stage.setScene(scene);
         stage.show();
     }
-    static void selectedToppings(CheckBox ch, String topping1, String topping2, String topping3, String selectedTopping) {
-        if (ch.isSelected()) {
-            System.out.println("Test");
-            if (topping1 == null) {
-                topping1 = selectedTopping;
-            } else if (topping2 == null) {
-                topping2 = selectedTopping;
-            } else if (topping3 == null) {
-                topping3 = selectedTopping;
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("TOPPINGS");
-                alert.setHeaderText("You can only select three (3) toppings only.");
-                alert.showAndWait();
-            }
-        }
-    }
-    public void toppings(ActionEvent event) {
-        if (chWaffle.isSelected()) {
-            selectedTopping = "Waffle";
-            selectedToppings(chWaffle, topping1, topping2, topping3, selectedTopping);
-        }
-        if (chIceCream.isSelected()) {
-            selectedTopping = "Ice Cream";
-            selectedToppings(chWaffle, topping1, topping2, topping3, selectedTopping);
-        }
-        if (chJelly.isSelected()) {
-            selectedTopping = "Jelly";
-            selectedToppings(chWaffle, topping1, topping2, topping3, selectedTopping);
-        }
-        if (chChocChip.isSelected()) {
-            selectedTopping = "Chocolate Chip";
-            selectedToppings(chWaffle, topping1, topping2, topping3, selectedTopping);
-        }
-    }
-    public void resetButton(ActionEvent e) {
+    public void resetButton(ActionEvent event) {
         chWaffle.setSelected(false);
         chIceCream.setSelected(false);
         chJelly.setSelected(false);
@@ -114,15 +79,13 @@ public class CashierController {
         chCaramelSyrup.setSelected(false);
         chChocSyrup.setSelected(false);
     }
-
-    public void submitOrder(ActionEvent e) {
+    public void submitOrder(ActionEvent event) {
         if (!rbPayLater.isSelected() && !rbPayNow.isSelected()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
             alert.setHeaderText("Select Payment Option!");
             alert.showAndWait();
-        } else{
-
         }
 
-    }}
+    }
+}

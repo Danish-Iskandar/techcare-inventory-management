@@ -19,8 +19,8 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="btnDashboard" layoutY="38.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="68.0" prefWidth="88.0" text="DASHBOARD" />
       <Button fx:id="btnCashier" layoutY="106.0" mnemonicParsing="false" onAction="#switchToCashier" prefHeight="68.0" prefWidth="88.0" text="CASHIER" />
+      <Button fx:id="btnDashboard" layoutY="38.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="68.0" prefWidth="88.0" text="DASHBOARD" />
       <Button fx:id="btnOrderList" layoutY="174.0" mnemonicParsing="false" onAction="#switchToOrderList" prefHeight="68.0" prefWidth="88.0" text="ORDER LIST" />
       <Button fx:id="btnInventory" layoutY="242.0" mnemonicParsing="false" onAction="#switchToInventory" prefHeight="68.0" prefWidth="88.0" text="INVENTORY" />
       <Button fx:id="btnMoney" layoutY="310.0" mnemonicParsing="false" onAction="#switchToMonetary" prefHeight="68.0" prefWidth="88.0" text="MONEY " />
@@ -53,8 +53,8 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="rbPayNow" layoutX="121.0" layoutY="342.0" mnemonicParsing="false" text="PAY NOW" />
-      <RadioButton fx:id="rbPayLater" layoutX="120.0" layoutY="362.0" mnemonicParsing="false" text="PAY UPON RECEIVE" />
+      <RadioButton layoutX="121.0" layoutY="342.0" mnemonicParsing="false" text="PAY NOW" />
+      <RadioButton layoutX="120.0" layoutY="362.0" mnemonicParsing="false" text="PAY UPON RECEIVE" />
       <Label layoutX="96.0" layoutY="306.0" text="PAYMENT STATUS :">
          <font>
             <Font size="16.0" />
@@ -82,7 +82,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnProceed" layoutX="528.0" layoutY="368.0" mnemonicParsing="false" onAction="#submitOrder" text="PROCEED" />
+      <Button fx:id="btnProceedCheckout" layoutX="528.0" layoutY="368.0" mnemonicParsing="false" onAction="#submitOrder" text="PROCEED" />
       <Button layoutX="465.0" layoutY="368.0" mnemonicParsing="false" text="RETURN" />
       <Pane layoutX="360.0" layoutY="164.0" prefHeight="109.0" prefWidth="126.0">
          <children>
