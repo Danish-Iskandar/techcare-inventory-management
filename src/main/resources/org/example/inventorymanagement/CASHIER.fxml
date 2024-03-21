@@ -86,10 +86,10 @@
       <Button layoutX="465.0" layoutY="368.0" mnemonicParsing="false" text="RETURN" />
       <Pane layoutX="360.0" layoutY="164.0" prefHeight="109.0" prefWidth="126.0">
          <children>
-            <CheckBox fx:id="chWaffle" layoutX="7.0" mnemonicParsing="false" onAction="#toppings" text="Waffle" />
-            <CheckBox fx:id="chIceCream" layoutX="7.0" layoutY="17.0" mnemonicParsing="false" onAction="#toppings" text="Ice Cream" />
-            <CheckBox fx:id="chJelly" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" onAction="#toppings" text="Jelly" />
-            <CheckBox fx:id="chChocChip" layoutX="7.0" layoutY="51.0" mnemonicParsing="false" onAction="#toppings" text="Chocolate Chip" />
+            <CheckBox fx:id="chWaffle" layoutX="7.0" mnemonicParsing="false" text="Waffle" />
+            <CheckBox fx:id="chIceCream" layoutX="7.0" layoutY="17.0" mnemonicParsing="false" text="Ice Cream" />
+            <CheckBox fx:id="chJelly" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" text="Jelly" />
+            <CheckBox fx:id="chChocChip" layoutX="7.0" layoutY="51.0" mnemonicParsing="false" text="Chocolate Chip" />
             <CheckBox fx:id="chCaramelSyrup" layoutX="7.0" layoutY="68.0" mnemonicParsing="false" text="Caramel Syrup" />
             <CheckBox fx:id="chChocSyrup" layoutX="7.0" layoutY="85.0" mnemonicParsing="false" text="Chocolate Syrup" />
          </children>
