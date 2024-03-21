@@ -61,7 +61,7 @@
          </font>
       </Label>
       <Separator layoutX="88.0" layoutY="301.0" prefHeight="0.0" prefWidth="512.0" />
-      <Button layoutX="512.0" layoutY="262.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="67.0" text="RESET" />
+      <Button fx:id="btnReset" layoutX="512.0" layoutY="262.0" mnemonicParsing="false" onAction="#resetButton" prefHeight="28.0" prefWidth="67.0" text="RESET" />
       <Label layoutX="349.0" layoutY="306.0" text="CHECKOUT :">
          <font>
             <Font size="16.0" />

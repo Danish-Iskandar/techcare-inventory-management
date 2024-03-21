@@ -16,6 +16,7 @@ public class CashierController {
     public Button btnOrderList;
     public Button btnInventory;
     public Button btnMoney;
+    public Button btnReset;
     public TextField txtBuyerName;
     public TextField txtBuyerPhone;
     public Button btnProceedCheckout;
@@ -69,7 +70,7 @@ public class CashierController {
     }
     static void selectedToppings(CheckBox ch, String topping1, String topping2, String topping3, String selectedTopping) {
         if (ch.isSelected()) {
-            selectedTopping = "Waffle";
+            System.out.println("Test");
             if (topping1 == null) {
                 topping1 = selectedTopping;
             } else if (topping2 == null) {
@@ -101,5 +102,13 @@ public class CashierController {
             selectedTopping = "Chocolate Chip";
             selectedToppings(chWaffle, topping1, topping2, topping3, selectedTopping);
         }
+    }
+    public void resetButton(ActionEvent e) {
+        chWaffle.setSelected(false);
+        chIceCream.setSelected(false);
+        chJelly.setSelected(false);
+        chChocChip.setSelected(false);
+        chCaramelSyrup.setSelected(false);
+        chChocSyrup.setSelected(false);
     }
 }
