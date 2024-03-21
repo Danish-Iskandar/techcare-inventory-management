@@ -53,8 +53,8 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton layoutX="121.0" layoutY="342.0" mnemonicParsing="false" text="PAY NOW" />
-      <RadioButton layoutX="120.0" layoutY="362.0" mnemonicParsing="false" text="PAY UPON RECEIVE" />
+      <RadioButton fx:id="rbPayNow" layoutX="121.0" layoutY="342.0" mnemonicParsing="false" text="PAY NOW" />
+      <RadioButton fx:id="rbPayLater" layoutX="120.0" layoutY="362.0" mnemonicParsing="false" text="PAY UPON RECEIVE" />
       <Label layoutX="96.0" layoutY="306.0" text="PAYMENT STATUS :">
          <font>
             <Font size="16.0" />

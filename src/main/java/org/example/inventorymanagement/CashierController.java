@@ -27,6 +27,7 @@ public class CashierController {
     public CheckBox chCaramelSyrup;
     public CheckBox chChocSyrup;
     public RadioButton rbPayLater;
+    public RadioButton rbPayNow;
 
     public void switchToDashboard(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
