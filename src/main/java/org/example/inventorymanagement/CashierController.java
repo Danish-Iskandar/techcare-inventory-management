@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,6 +16,9 @@ public class CashierController {
     public Button btnOrderList;
     public Button btnInventory;
     public Button btnMoney;
+    public TextField txtBuyerName;
+    public TextField txtBuyerPhone;
+
     public void switchToDashboard(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
