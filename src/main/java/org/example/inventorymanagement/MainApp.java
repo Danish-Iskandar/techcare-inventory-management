@@ -18,7 +18,7 @@ public class MainApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("LOGIN.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
 
-        Image icon = new Image(new FileInputStream("D:\\Coding\\Java\\javafx\\InventoryManagement\\src\\main\\resources\\PNGs\\TECHCARE-LOGO.png"));
+        Image icon = new Image(new FileInputStream("src\\main\\resources\\PNGs\\TECHCARE-LOGO.png"));
         stage.getIcons().add(icon);
         stage.setTitle("Inventory Manager");
         stage.setScene(scene);
