@@ -20,7 +20,7 @@ public class LoginController extends Component {
     public LoginController() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mytechcare", "root", "0000");
+            connection = DriverManager.getConnection("jdbc:mysql://techcaredb.cbg6264eke46.ap-southeast-2.rds.amazonaws.com :3306/mytechcare", "admin", "shukri1234");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
