@@ -29,6 +29,8 @@ public class CashierController {
     public RadioButton rbPayLater;
     public RadioButton rbPayNow;
 
+
+
     public void switchToDashboard(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -64,6 +66,20 @@ public class CashierController {
         stage.setScene(scene);
         stage.show();
     }
+    public String bingsuFlavour="";
+
+    public void Chocolate(ActionEvent event) {
+        bingsuFlavour="Chocolate";
+    }
+    public void Mango(ActionEvent event) {
+        bingsuFlavour="Mango";
+    }
+    public void Bandung(ActionEvent event) {
+        bingsuFlavour="Bandung";
+    }
+    public void Honeydew(ActionEvent event) {
+        bingsuFlavour="Honeydew";
+    }
     public void resetButton(ActionEvent event) {
         chWaffle.setSelected(false);
         chIceCream.setSelected(false);
@@ -78,6 +94,22 @@ public class CashierController {
             alert.setTitle("ERROR");
             alert.setHeaderText("Select Payment Option!");
             alert.showAndWait();
+        }else{
+            if (txtBuyerPhone.getText()=="" && txtBuyerName.getText()==""){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("ERROR");
+                alert.setHeaderText("Fill in Buyer Name and Phone Number!");
+                alert.showAndWait();
+            }else{
+                if (bingsuFlavour==""){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("ERROR");
+                    alert.setHeaderText("Select a Flavour!");
+                    alert.showAndWait();
+                }else{
+
+                }
+            }
         }
 
     }
