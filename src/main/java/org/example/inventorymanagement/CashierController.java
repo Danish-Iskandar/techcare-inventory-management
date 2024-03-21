@@ -30,6 +30,9 @@ public class CashierController {
     public String topping1;
     public String topping2;
     public String topping3;
+    public Button btnProceed;
+    public RadioButton rbPayNow;
+    public RadioButton rbPayLater;
     private static final int max_selection = 3;
     private int selectedCount = 0;
 
@@ -111,4 +114,15 @@ public class CashierController {
         chCaramelSyrup.setSelected(false);
         chChocSyrup.setSelected(false);
     }
-}
+
+    public void submitOrder(ActionEvent e) {
+        if (!rbPayLater.isSelected() && !rbPayNow.isSelected()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Select Payment Option!");
+            alert.showAndWait();
+        } else{
+
+        }
+
+    }}
