@@ -30,10 +30,10 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="147.0" layoutY="151.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="Chocolate" />
-      <Button layoutX="243.0" layoutY="151.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="Mango" />
-      <Button layoutX="145.0" layoutY="228.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="Bandung" />
-      <Button layoutX="243.0" layoutY="228.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="HoneyDew" />
+      <Button fx:id="btnChoc" layoutX="147.0" layoutY="151.0" mnemonicParsing="false" onAction="#Chocolate" prefHeight="68.0" prefWidth="85.0" text="Chocolate" />
+      <Button fx:id="btnMango" layoutX="243.0" layoutY="151.0" mnemonicParsing="false" onAction="#Mango" prefHeight="68.0" prefWidth="85.0" text="Mango" />
+      <Button fx:id="btnBandung" layoutX="145.0" layoutY="228.0" mnemonicParsing="false" onAction="#Bandung" prefHeight="68.0" prefWidth="85.0" text="Bandung" />
+      <Button fx:id="btnHoneydew" layoutX="243.0" layoutY="228.0" mnemonicParsing="false" onAction="#Honeydew" prefHeight="68.0" prefWidth="85.0" text="HoneyDew" />
       <TextField fx:id="txtBuyerName" layoutX="158.0" layoutY="100.0" />
       <TextField fx:id="txtBuyerPhone" layoutX="437.0" layoutY="101.0" />
       <Label layoutX="101.0" layoutY="101.0" text="Name :">
