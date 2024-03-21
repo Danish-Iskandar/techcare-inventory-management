@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="101.0" layoutY="106.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="ITEM ADDED" />
+      <Button fx:id="btnTest" layoutX="101.0" layoutY="106.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="ITEM ADDED" />
       <Button layoutX="197.0" layoutY="106.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="ITEM ADDED" />
       <Button layoutX="300.0" layoutY="106.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="85.0" text="ITEM ADDED" />
       <Separator layoutX="426.0" layoutY="91.0" orientation="VERTICAL" prefHeight="309.0" prefWidth="0.0" />

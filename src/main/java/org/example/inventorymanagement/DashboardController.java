@@ -15,7 +15,7 @@ public class DashboardController {
     public Button btnOrderList;
     public Button btnInventory;
     public Button btnMoney;
-
+    public Button btnTest;
     public void switchToDashboard(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

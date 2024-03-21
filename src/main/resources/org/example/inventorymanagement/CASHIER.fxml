@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.CashierController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.CashierController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff61f" height="38.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Label layoutX="6.0" layoutY="7.0" prefHeight="28.0" prefWidth="135.0" text="TECHCARE STORE">
@@ -55,14 +61,7 @@
          </font>
       </Label>
       <Separator layoutX="88.0" layoutY="301.0" prefHeight="0.0" prefWidth="512.0" />
-      <RadioButton layoutX="351.0" layoutY="162.0" mnemonicParsing="false" text="WAFFLE " />
-      <RadioButton layoutX="350.0" layoutY="182.0" mnemonicParsing="false" text="CHOCOLATE CHIP" />
-      <RadioButton layoutX="350.0" layoutY="201.0" mnemonicParsing="false" text="ICE CREAM" />
-      <RadioButton layoutX="350.0" layoutY="221.0" mnemonicParsing="false" text="CARAMEL SYRUP" />
-      <RadioButton layoutX="351.0" layoutY="243.0" mnemonicParsing="false" text="ICE CREAM" />
-      <RadioButton layoutX="351.0" layoutY="263.0" mnemonicParsing="false" text="CARAMEL SYRUP" />
-      <Button layoutX="470.0" layoutY="273.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="51.0" text="RESET" />
-      <Button layoutX="522.0" layoutY="273.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="CONFIRM" />
+      <Button layoutX="512.0" layoutY="262.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="67.0" text="RESET" />
       <Label layoutX="349.0" layoutY="306.0" text="CHECKOUT :">
          <font>
             <Font size="16.0" />
@@ -83,7 +82,17 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button layoutX="528.0" layoutY="368.0" mnemonicParsing="false" text="PROCEED" />
+      <Button fx:id="btnProceedCheckout" layoutX="528.0" layoutY="368.0" mnemonicParsing="false" text="PROCEED" />
       <Button layoutX="465.0" layoutY="368.0" mnemonicParsing="false" text="RETURN" />
+      <Pane layoutX="360.0" layoutY="164.0" prefHeight="109.0" prefWidth="126.0">
+         <children>
+            <CheckBox fx:id="chWaffle" layoutX="7.0" mnemonicParsing="false" onAction="#toppings" text="Waffle" />
+            <CheckBox fx:id="chIceCream" layoutX="7.0" layoutY="17.0" mnemonicParsing="false" onAction="#toppings" text="Ice Cream" />
+            <CheckBox fx:id="chJelly" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" onAction="#toppings" text="Jelly" />
+            <CheckBox fx:id="chChocChip" layoutX="7.0" layoutY="51.0" mnemonicParsing="false" onAction="#toppings" text="Chocolate Chip" />
+            <CheckBox fx:id="chCaramelSyrup" layoutX="7.0" layoutY="68.0" mnemonicParsing="false" text="Caramel Syrup" />
+            <CheckBox fx:id="chChocSyrup" layoutX="7.0" layoutY="85.0" mnemonicParsing="false" text="Chocolate Syrup" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
