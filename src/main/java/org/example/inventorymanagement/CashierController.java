@@ -26,15 +26,7 @@ public class CashierController {
     public CheckBox chChocChip;
     public CheckBox chCaramelSyrup;
     public CheckBox chChocSyrup;
-    public String selectedTopping;
-    public String topping1;
-    public String topping2;
-    public String topping3;
-    public Button btnProceed;
-    public RadioButton rbPayNow;
     public RadioButton rbPayLater;
-    private static final int max_selection = 3;
-    private int selectedCount = 0;
 
     public void switchToDashboard(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
