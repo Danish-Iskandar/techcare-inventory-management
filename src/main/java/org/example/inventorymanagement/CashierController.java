@@ -65,7 +65,7 @@ public class CashierController {
     public void switchToOrderList(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ORDER-LIST.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 750, 400);
         stage.setScene(scene);
         stage.show();
     }
@@ -120,13 +120,15 @@ public class CashierController {
         } else {
             Status = "Not Paid";
         }
+        String datetime= String.valueOf(currentDateTime);
+        datetime = datetime.substring(0, datetime.length()-9);
         try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO orderlist (OrderName, OrderPhone, Flavour, Toppings, Status, DateTime) VALUES (?,?,?,?,?,?)")) {
             preparedStatement.setString(1, buyerName);
             preparedStatement.setString(2, buyerPhone);
             preparedStatement.setString(3, ActualbingsuFlavour);
             preparedStatement.setString(4, toppings);
             preparedStatement.setString(5, Status);
-            preparedStatement.setString(6, String.valueOf(currentDateTime));
+            preparedStatement.setString(6, datetime);
 
             int rowsAffected = preparedStatement.executeUpdate();
 
