@@ -11,6 +11,7 @@ import java.sql.*;
 
 import java.io.IOException;
 import java.sql.DriverManager;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
 public class CashierController {
@@ -36,7 +37,10 @@ public class CashierController {
     public Button btnMango;
     public Button btnBandung;
     public Button btnHoneydew;
-
+    public Label lblAmount;
+    public Button btnClearAll;
+    public double totalAmount = 0, toppingPrice = 0;
+    private static final DecimalFormat df = new DecimalFormat("0.00");
     public CashierController() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -84,20 +88,57 @@ public class CashierController {
         stage.show();
     }
     public String bingsuFlavour="";
-
+    public double mainFlavor;
     public void Chocolate(ActionEvent event) {
         bingsuFlavour="Chocolate";
+        mainFlavor = 4;
+        toppingPrice = 0;
+        chWaffle.setSelected(false);
+        chIceCream.setSelected(false);
+        chJelly.setSelected(false);
+        chChocChip.setSelected(false);
+        chCaramelSyrup.setSelected(false);
+        chChocSyrup.setSelected(false);
+        lblAmount.setText(String.valueOf(df.format(mainFlavor)));
     }
     public void Mango(ActionEvent event) {
         bingsuFlavour="Mango";
+        mainFlavor = 4;
+        toppingPrice = 0;
+        chWaffle.setSelected(false);
+        chIceCream.setSelected(false);
+        chJelly.setSelected(false);
+        chChocChip.setSelected(false);
+        chCaramelSyrup.setSelected(false);
+        chChocSyrup.setSelected(false);
+        lblAmount.setText(String.valueOf(df.format(mainFlavor)));
     }
     public void Bandung(ActionEvent event) {
         bingsuFlavour="Bandung";
+        toppingPrice = 0;
+        chWaffle.setSelected(false);
+        chIceCream.setSelected(false);
+        chJelly.setSelected(false);
+        chChocChip.setSelected(false);
+        chCaramelSyrup.setSelected(false);
+        chChocSyrup.setSelected(false);
+        lblAmount.setText(String.valueOf(df.format(mainFlavor)));
     }
     public void Honeydew(ActionEvent event) {
-        bingsuFlavour="Honeydew";
+        bingsuFlavour = "Honeydew";
+        toppingPrice = 0;
+        chWaffle.setSelected(false);
+        chIceCream.setSelected(false);
+        chJelly.setSelected(false);
+        chChocChip.setSelected(false);
+        chCaramelSyrup.setSelected(false);
+        chChocSyrup.setSelected(false);
+        lblAmount.setText(String.valueOf(df.format(mainFlavor)));
     }
     public void resetButton(ActionEvent event) {
+        toppingPrice = 0;
+        totalAmount = 4;
+        lblAmount.setText(String.valueOf(df.format(totalAmount)));
         chWaffle.setSelected(false);
         chIceCream.setSelected(false);
         chJelly.setSelected(false);
@@ -133,6 +174,11 @@ public class CashierController {
             int rowsAffected = preparedStatement.executeUpdate();
 
             if (rowsAffected > 0) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("ORDER SUCCESS");
+                alert.setHeaderText("Order submitted successfully!");
+                alert.showAndWait();
+                clearAll();
                 System.out.println("Order submitted successfully!");
             } else {
                 System.out.println("Failed to submit order. Please try again.");
@@ -142,43 +188,114 @@ public class CashierController {
         }
     }
 
-
-        public void submitOrder (ActionEvent event){
-            if (!rbPayLater.isSelected() && !rbPayNow.isSelected()) {
+    public void calcWaffle (ActionEvent e) {
+        if (chWaffle.isSelected()) {
+            toppingPrice = toppingPrice + 0.5;
+        } else {
+            toppingPrice = toppingPrice - 0.5;
+        }
+        totalAmount = mainFlavor + toppingPrice;
+        lblAmount.setText(String.valueOf(df.format(totalAmount)));
+    }
+    public void calcIceCream (ActionEvent e) {
+        if (chIceCream.isSelected()) {
+            toppingPrice = toppingPrice + 0.5;
+        } else {
+            toppingPrice = toppingPrice - 0.5;
+        }
+        totalAmount = mainFlavor + toppingPrice;
+        lblAmount.setText(String.valueOf(df.format(totalAmount)));
+    }
+    public void calcJelly (ActionEvent e) {
+        if (chJelly.isSelected()) {
+            toppingPrice = toppingPrice + 0.5;
+        } else {
+            toppingPrice = toppingPrice - 0.5;
+        }
+        totalAmount = mainFlavor + toppingPrice;
+        lblAmount.setText(String.valueOf(df.format(totalAmount)));
+    }
+    public void calcChocChip (ActionEvent e) {
+        if (chChocChip.isSelected()) {
+            toppingPrice = toppingPrice + 0.5;
+        } else {
+            toppingPrice = toppingPrice - 0.5;
+        }
+        totalAmount = mainFlavor + toppingPrice;
+        lblAmount.setText(String.valueOf(df.format(totalAmount)));
+    }
+    public void calcCaramelSyrup (ActionEvent e) {
+        if (chCaramelSyrup.isSelected()) {
+            toppingPrice = toppingPrice + 0.5;
+        } else {
+            toppingPrice = toppingPrice - 0.5;
+        }
+        totalAmount = mainFlavor + toppingPrice;
+        lblAmount.setText(String.valueOf(df.format(totalAmount)));
+    }
+    public void calcChocSyrup (ActionEvent e) {
+        if (chChocSyrup.isSelected()) {
+            toppingPrice = toppingPrice + 0.5;
+        } else {
+            toppingPrice = toppingPrice - 0.5;
+        }
+        totalAmount = mainFlavor + toppingPrice;
+        lblAmount.setText(String.valueOf(df.format(totalAmount)));
+    }
+    public void clearAll() {
+        bingsuFlavour = "";
+        toppingPrice = 0;
+        totalAmount = 0;
+        txtBuyerName.setText("");
+        txtBuyerPhone.setText("");
+        lblAmount.setText(String.valueOf(df.format(totalAmount)));
+        rbPayNow.setSelected(false);
+        rbPayLater.setSelected(false);
+        chWaffle.setSelected(false);
+        chIceCream.setSelected(false);
+        chJelly.setSelected(false);
+        chChocChip.setSelected(false);
+        chCaramelSyrup.setSelected(false);
+        chChocSyrup.setSelected(false);
+    }
+    public void setBtnClearAll (ActionEvent e) {
+        clearAll();
+    }
+    public void submitOrder (ActionEvent event){
+        if (!rbPayLater.isSelected() && !rbPayNow.isSelected()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("Select Payment Option!");
+            alert.showAndWait();
+        } else {
+            if (txtBuyerPhone.getText() == "" && txtBuyerName.getText() == "") {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("ERROR");
-                alert.setHeaderText("Select Payment Option!");
+                alert.setHeaderText("Fill in Buyer Name and Phone Number!");
                 alert.showAndWait();
             } else {
-                if (txtBuyerPhone.getText() == "" && txtBuyerName.getText() == "") {
+                if (bingsuFlavour == "") {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("ERROR");
-                    alert.setHeaderText("Fill in Buyer Name and Phone Number!");
+                    alert.setHeaderText("Select a flavour!");
                     alert.showAndWait();
                 } else {
-                    if (bingsuFlavour == "") {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("ERROR");
-                        alert.setHeaderText("Select a flavour!");
-                        alert.showAndWait();
-                    } else {
-                        toppingsTotal = ""; // Initialize toppings string as empty
-                        if (chWaffle.isSelected()) toppingsTotal += "Waffle, ";
-                        if (chIceCream.isSelected()) toppingsTotal += "Ice Cream, ";
-                        if (chJelly.isSelected()) toppingsTotal += "Jelly, ";
-                        if (chChocChip.isSelected()) toppingsTotal += "ChocChip, ";
-                        if (chCaramelSyrup.isSelected()) toppingsTotal += "Caramel Syrup, ";
-                        if (chChocSyrup.isSelected()) toppingsTotal += "Chocolate Syrup, ";
+                    toppingsTotal = ""; // Initialize toppings string as empty
+                    if (chWaffle.isSelected()) toppingsTotal += "Waffle, ";
+                    if (chIceCream.isSelected()) toppingsTotal += "Ice Cream, ";
+                    if (chJelly.isSelected()) toppingsTotal += "Jelly, ";
+                    if (chChocChip.isSelected()) toppingsTotal += "ChocChip, ";
+                    if (chCaramelSyrup.isSelected()) toppingsTotal += "Caramel Syrup, ";
+                    if (chChocSyrup.isSelected()) toppingsTotal += "Chocolate Syrup, ";
 
-                        // Remove trailing comma and space if no toppings selected
-                        if (toppingsTotal.endsWith(", ")) {
-                            toppingsTotal = toppingsTotal.substring(0, toppingsTotal.length() - 2);
-                        }
-                        proceed(event);
-
+                    // Remove trailing comma and space if no toppings selected
+                    if (toppingsTotal.endsWith(", ")) {
+                        toppingsTotal = toppingsTotal.substring(0, toppingsTotal.length() - 2);
                     }
-                }
+                    proceed(event);
 
+                }
             }
         }
     }
+}

@@ -72,26 +72,26 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="364.0" layoutY="332.0" text="AMMOUNT : RM">
+      <Label layoutX="364.0" layoutY="332.0" text="AMOUNT : RM">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="486.0" layoutY="332.0" text="100.00">
+      <Label fx:id="lblAmount" layoutX="473.0" layoutY="332.0" text="0.00">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
       <Button fx:id="btnProceedCheckout" layoutX="528.0" layoutY="368.0" mnemonicParsing="false" onAction="#submitOrder" text="PROCEED" />
-      <Button layoutX="465.0" layoutY="368.0" mnemonicParsing="false" text="RETURN" />
+      <Button fx:id="btnClearAll" layoutX="442.0" layoutY="368.0" mnemonicParsing="false" onAction="#setBtnClearAll" prefHeight="26.0" prefWidth="75.0" text="CLEAR ALL" />
       <Pane layoutX="360.0" layoutY="164.0" prefHeight="109.0" prefWidth="126.0">
          <children>
-            <CheckBox fx:id="chWaffle" layoutX="7.0" mnemonicParsing="false" text="Waffle" />
-            <CheckBox fx:id="chIceCream" layoutX="7.0" layoutY="17.0" mnemonicParsing="false" text="Ice Cream" />
-            <CheckBox fx:id="chJelly" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" text="Jelly" />
-            <CheckBox fx:id="chChocChip" layoutX="7.0" layoutY="51.0" mnemonicParsing="false" text="Chocolate Chip" />
-            <CheckBox fx:id="chCaramelSyrup" layoutX="7.0" layoutY="68.0" mnemonicParsing="false" text="Caramel Syrup" />
-            <CheckBox fx:id="chChocSyrup" layoutX="7.0" layoutY="85.0" mnemonicParsing="false" text="Chocolate Syrup" />
+            <CheckBox fx:id="chWaffle" layoutX="7.0" mnemonicParsing="false" onAction="#calcWaffle" text="Waffle" />
+            <CheckBox fx:id="chIceCream" layoutX="7.0" layoutY="17.0" mnemonicParsing="false" onAction="#calcIceCream" text="Ice Cream" />
+            <CheckBox fx:id="chJelly" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" onAction="#calcJelly" text="Jelly" />
+            <CheckBox fx:id="chChocChip" layoutX="7.0" layoutY="51.0" mnemonicParsing="false" onAction="#calcChocChip" text="Chocolate Chip" />
+            <CheckBox fx:id="chCaramelSyrup" layoutX="7.0" layoutY="68.0" mnemonicParsing="false" onAction="#calcCaramelSyrup" text="Caramel Syrup" />
+            <CheckBox fx:id="chChocSyrup" layoutX="7.0" layoutY="85.0" mnemonicParsing="false" onAction="#calcChocSyrup" text="Chocolate Syrup" />
          </children>
       </Pane>
    </children>

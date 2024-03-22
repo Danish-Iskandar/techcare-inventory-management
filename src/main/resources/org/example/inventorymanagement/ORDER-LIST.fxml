@@ -52,12 +52,12 @@
       <TableView fx:id="ordersTable" layoutX="94.0" layoutY="163.0" prefHeight="200.0" prefWidth="651.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="31.600006103515625" resizable="false" text="ID" />
-          <TableColumn fx:id="nameCol" prefWidth="111.60000610351562" resizable="false" text="ORDER NAME" />
-            <TableColumn fx:id="flavourCol" prefWidth="91.19999694824219" resizable="false" text="FLAVOUR" />
-            <TableColumn fx:id="toppingsCol" prefWidth="131.20001220703125" resizable="false" text="TOPPINGS" />
-            <TableColumn fx:id="statusCol" prefWidth="70.0" resizable="false" text="STATUS" />
-            <TableColumn fx:id="datetimeCol" prefWidth="141.5999755859375" resizable="false" text="DATE" />
-            <TableColumn fx:id="editCol" prefWidth="71.20001220703125" resizable="false" text="INTERACT" />
+          <TableColumn fx:id="nameCol" prefWidth="83.20001220703125" resizable="false" text="ORDER NAME" />
+            <TableColumn fx:id="flavourCol" prefWidth="64.80000305175781" resizable="false" text="FLAVOUR" />
+            <TableColumn fx:id="toppingsCol" prefWidth="203.20001220703125" resizable="false" text="TOPPINGS" />
+            <TableColumn fx:id="statusCol" prefWidth="55.20001220703125" resizable="false" text="STATUS" />
+            <TableColumn fx:id="datetimeCol" prefWidth="120.0" resizable="false" text="DATE" />
+            <TableColumn fx:id="editCol" prefWidth="77.5999755859375" resizable="false" text="INTERACT" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
