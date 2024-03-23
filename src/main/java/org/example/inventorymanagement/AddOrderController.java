@@ -65,36 +65,15 @@ public class AddOrderController implements Initializable {
         String Toppings = toppingsFld.getText();
         String Status = "Completed";
 
-            getQuery();
-            insert();
-            clean();
-            // need to somehow refresh this page without duplicate
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ORDER-LIST.fxml"));
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(fxmlLoader.load(), 750, 400);
-            stage.setScene(scene);
-            stage.show();
-
-
-
-
-    }
-
-    @FXML
-    private void btnClose(MouseEvent event) {
-        clean();
-    }
-
-    @FXML
-    private void clean() {
-        Stage stage = (Stage) btnSave.getScene().getWindow();
-        // do what you have to do
+        getQuery();
+        insert();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("STATUS UPDATED");
+        alert.setHeaderText("Status updated! Please reload the page to update the table.");
+        alert.showAndWait();
         stage.close();
-
-
     }
-
-
     private void getQuery() {
 
         if (update == false) {

@@ -33,7 +33,7 @@ import java.util.logging.Logger;
 
 public class OrderListController implements Initializable {
 
-
+    public static boolean setRefresh = false;
 
     public Button btnDashboard;
     public Button btnCashier;
@@ -108,7 +108,7 @@ public class OrderListController implements Initializable {
 
 
     @FXML
-    private void refreshTable() {
+    public void refreshTable() {
         try {
             OrderList.clear();
 
@@ -222,10 +222,6 @@ public class OrderListController implements Initializable {
                             stage.setScene(new Scene(parent));
                             stage.initStyle(StageStyle.UTILITY);
                             stage.show();
-
-
-
-
                         });
 
                         HBox managebtn = new HBox(editIcon, deleteIcon);

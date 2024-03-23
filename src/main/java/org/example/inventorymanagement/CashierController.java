@@ -143,7 +143,7 @@ public class CashierController {
         lblAmount.setText(String.valueOf(df.format(mainFlavor)));
     }
     public void resetButton(ActionEvent event) {
-        mainFlavor = 0;
+        mainFlavor = 4;
         toppingPrice = 0;
         totalAmount = 4;
         lblAmount.setText(String.valueOf(df.format(totalAmount)));
