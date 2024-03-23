@@ -39,6 +39,7 @@ public class CashierController {
     public Button btnHoneydew;
     public Label lblAmount;
     public Button btnClearAll;
+    public Label lbFlavour;
     public double totalAmount = 0, toppingPrice = 0;
     private static final DecimalFormat df = new DecimalFormat("0.00");
     public CashierController() {
@@ -91,6 +92,7 @@ public class CashierController {
     public double mainFlavor;
     public void Chocolate(ActionEvent event) {
         bingsuFlavour="Chocolate";
+        lbFlavour.setText("Chocolate");
         mainFlavor = 4;
         toppingPrice = 0;
         chWaffle.setSelected(false);
@@ -103,6 +105,7 @@ public class CashierController {
     }
     public void Mango(ActionEvent event) {
         bingsuFlavour="Mango";
+        lbFlavour.setText("Mango");
         mainFlavor = 4;
         toppingPrice = 0;
         chWaffle.setSelected(false);
@@ -115,7 +118,9 @@ public class CashierController {
     }
     public void Bandung(ActionEvent event) {
         bingsuFlavour="Bandung";
+        lbFlavour.setText("Bandung");
         toppingPrice = 0;
+        mainFlavor = 4;
         chWaffle.setSelected(false);
         chIceCream.setSelected(false);
         chJelly.setSelected(false);
@@ -126,6 +131,8 @@ public class CashierController {
     }
     public void Honeydew(ActionEvent event) {
         bingsuFlavour = "Honeydew";
+        lbFlavour.setText("Honeydew");
+        mainFlavor = 4;
         toppingPrice = 0;
         chWaffle.setSelected(false);
         chIceCream.setSelected(false);
@@ -136,6 +143,7 @@ public class CashierController {
         lblAmount.setText(String.valueOf(df.format(mainFlavor)));
     }
     public void resetButton(ActionEvent event) {
+        mainFlavor = 0;
         toppingPrice = 0;
         totalAmount = 4;
         lblAmount.setText(String.valueOf(df.format(totalAmount)));
@@ -157,9 +165,9 @@ public class CashierController {
         String toppings = toppingsTotal;
         String ActualbingsuFlavour= bingsuFlavour;
         if (rbPayNow.isSelected()) {
-            Status = "Paid";
+            Status = "Pending";
         } else {
-            Status = "Not Paid";
+            Status = "Pending";
         }
         String datetime= String.valueOf(currentDateTime);
         datetime = datetime.substring(0, datetime.length()-9);
@@ -244,6 +252,7 @@ public class CashierController {
     }
     public void clearAll() {
         bingsuFlavour = "";
+        lbFlavour.setText("");
         toppingPrice = 0;
         totalAmount = 0;
         txtBuyerName.setText("");

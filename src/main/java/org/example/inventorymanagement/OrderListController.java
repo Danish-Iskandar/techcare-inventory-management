@@ -13,10 +13,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -35,11 +32,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class OrderListController implements Initializable {
+
+
+
     public Button btnDashboard;
     public Button btnCashier;
     public Button btnOrderList;
     public Button btnInventory;
     public Button btnMoney;
+
 
     @FXML
     private TableView<Orders> ordersTable;
@@ -104,6 +105,7 @@ public class OrderListController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+
 
     @FXML
     private void refreshTable() {
@@ -176,20 +178,26 @@ public class OrderListController implements Initializable {
                                         + "-fx-fill:#00E676;"
                         );
                         deleteIcon.setOnMouseClicked((MouseEvent event) -> {
+                            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                            alert.setTitle("Are you sure?");
+                            alert.setHeaderText("This action cannot be undone.");
+                            alert.setContentText("Do you want to proceed?");
+                            alert.showAndWait();
+                            if (alert.getResult() == ButtonType.OK) {
+                                try {
+                                    orders = ordersTable.getSelectionModel().getSelectedItem();
+                                    query = "DELETE FROM `orderlist` WHERE OrderID  ="+orders.getOrderID();
+                                    connection = DBConnect.getConnect();
+                                    preparedStatement = connection.prepareStatement(query);
+                                    preparedStatement.execute();
+                                    refreshTable();
 
-                            try {
-                                orders = ordersTable.getSelectionModel().getSelectedItem();
-                                query = "DELETE FROM `orderlist` WHERE id  ="+orders.getOrderID();
-                                connection = DBConnect.getConnect();
-                                preparedStatement = connection.prepareStatement(query);
-                                preparedStatement.execute();
-                                refreshTable();
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(OrderListController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            } else if (alert.getResult() == ButtonType.CANCEL) {
 
-                            } catch (SQLException ex) {
-                                Logger.getLogger(OrderListController.class.getName()).log(Level.SEVERE, null, ex);
                             }
-
-
 
 
 
@@ -198,7 +206,7 @@ public class OrderListController implements Initializable {
 
                             orders = ordersTable.getSelectionModel().getSelectedItem();
                             FXMLLoader loader = new FXMLLoader ();
-                            loader.setLocation(getClass().getResource("/tableView/addStudent.fxml"));
+                            loader.setLocation(getClass().getResource("/org/example/inventorymanagement/EDIT-ORDER.fxml"));
                             try {
                                 loader.load();
                             } catch (IOException ex) {
@@ -208,7 +216,7 @@ public class OrderListController implements Initializable {
                             AddOrderController addOrderController = loader.getController();
                             addOrderController.setUpdate(true);
                             addOrderController.setTextField(orders.getOrderID(), orders.getOrderName(),
-                                    orders.getOrderPhone(),orders.getFlavour(), orders.getToppings());
+                                    orders.getOrderPhone(),orders.getFlavour(), orders.getToppings(), orders.getStatus());
                             Parent parent = loader.getRoot();
                             Stage stage = new Stage();
                             stage.setScene(new Scene(parent));

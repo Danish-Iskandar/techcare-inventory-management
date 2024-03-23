@@ -1,13 +1,19 @@
 package org.example.inventorymanagement;
 
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextField;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import Models.Orders;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,18 +23,25 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.example.inventorymanagement.OrderListController;
 
 
 public class AddOrderController implements Initializable {
 
     @FXML
-    private JFXTextField ordernameFld;
+    private TextField ordernameFld;
     @FXML
-    private JFXTextField orderphoneFld;
+    private TextField orderphoneFld;
     @FXML
-    private JFXTextField flavourFld;
+    private TextField flavourFld;
     @FXML
-    private JFXTextField toppingsFld;
+    private TextField toppingsFld;
+    @FXML
+    private TextField statusfld;
+    @FXML
+    private Button btnSave;
+
+
 
     String query = null;
     Connection connection= null;
@@ -38,55 +51,59 @@ public class AddOrderController implements Initializable {
     private boolean update;
     int orderID;
 
-@Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
 
     }
     @FXML
-    private void save(MouseEvent event) {
+    private void updateStatus(ActionEvent event) throws IOException {
 
         connection = DBConnect.getConnect();
         String OrderName = ordernameFld.getText();
         String OrderPhone = orderphoneFld.getText();
         String Flavour = flavourFld.getText();
         String Toppings = toppingsFld.getText();
+        String Status = "Completed";
 
-        if (OrderName.isEmpty() || OrderPhone.isEmpty() || Flavour.isEmpty() || Toppings.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Please Fill All DATA");
-            alert.showAndWait();
-
-        } else {
             getQuery();
             insert();
             clean();
+            // need to somehow refresh this page without duplicate
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ORDER-LIST.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(fxmlLoader.load(), 750, 400);
+            stage.setScene(scene);
+            stage.show();
 
-        }
+
+
 
     }
 
     @FXML
+    private void btnClose(MouseEvent event) {
+        clean();
+    }
+
+    @FXML
     private void clean() {
-        ordernameFld.setText(null);
-        orderphoneFld.setText(null);
-        flavourFld.setText(null);
-        toppingsFld.setText(null);
+        Stage stage = (Stage) btnSave.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+
 
     }
+
 
     private void getQuery() {
 
         if (update == false) {
 
-            query = "INSERT INTO `orderlist`( `OrderName`, `OrderPhone`, `Flavour`, `Toppings`) VALUES (?,?,?,?)";
+            query = "INSERT INTO `orderlist`(`Status`) VALUES (?)";
 
         }else{
-            query = "UPDATE `student` SET "
-                    + "`OrderName`=?,"
-                    + "`OrderPhone`=?,"
-                    + "`Flavour`=?,"
-                    + "`Toppings`= ? WHERE OrderID = '"+orderID+"'";
+            query = "UPDATE `orderlist` SET "
+                    + "`Status`= ? WHERE OrderID = '"+orderID+"'";
         }
 
     }
@@ -96,10 +113,7 @@ public class AddOrderController implements Initializable {
         try {
 
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, orderphoneFld.getText());
-            preparedStatement.setString(2, orderphoneFld.getText());
-            preparedStatement.setString(3, flavourFld.getText());
-            preparedStatement.setString(4, toppingsFld.getText());
+            preparedStatement.setString(1, "Completed");
             preparedStatement.execute();
 
         } catch (SQLException ex) {
@@ -108,13 +122,14 @@ public class AddOrderController implements Initializable {
 
     }
 
-    void setTextField(int OrderID, String OrderName,String OrderPhone, String Flavour, String Toppings) {
+    void setTextField(int OrderID, String OrderName,String OrderPhone, String Flavour, String Toppings, String Status) {
 
         orderID = OrderID;
         ordernameFld.setText(OrderName);
         orderphoneFld.setText(OrderPhone);
         flavourFld.setText(Flavour);
         toppingsFld.setText(Toppings);
+        statusfld.setText(Status);
 
     }
 
