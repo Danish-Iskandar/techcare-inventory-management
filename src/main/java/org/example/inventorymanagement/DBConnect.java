@@ -5,28 +5,28 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.lang.Class;
 
 public class DBConnect {
+
     private static String HOST = "jdbc:mysql://techcaredb.cbg6264eke46.ap-southeast-2.rds.amazonaws.com :3306/mytechcare";
     private static int PORT = 3306;
     private static String DB_NAME = "mytechcare";
     private static String USERNAME = "admin";
     private static String PASSWORD = "shukri1234";
-    private static Connection connection ;
+    public static Connection connection;
 
 
-    public static Connection getConnect (){
+    public static Connection getConnect() {
         try {
-            connection = DriverManager.getConnection(String.format("jdbc:mysql://techcaredb.cbg6264eke46.ap-southeast-2.rds.amazonaws.com :3306/mytechcare", HOST,PORT,DB_NAME),USERNAME,PASSWORD);
-        } catch (SQLException ex) {
-            Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, ex);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://techcaredb.cbg6264eke46.ap-southeast-2.rds.amazonaws.com :3306/mytechcare", "admin", "shukri1234");
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-
-        return  connection;
+        return connection;
     }
-
-
-
-
-
 }
+
+
+

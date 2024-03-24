@@ -161,11 +161,11 @@ public class CashierController {
 
     private void proceed(ActionEvent event) {
         String buyerName = txtBuyerName.getText();
-        String buyerPhone = txtBuyerPhone.getText();
+        String buyerPhone = "+6"+txtBuyerPhone.getText();
         String toppings = toppingsTotal;
         String ActualbingsuFlavour= bingsuFlavour;
         if (rbPayNow.isSelected()) {
-            Status = "Pending";
+            Status = "Paid";
         } else {
             Status = "Pending";
         }
@@ -195,6 +195,37 @@ public class CashierController {
             throw new RuntimeException(e);
         }
     }
+
+    private void monetaryProceed(ActionEvent event) {
+        String description = txtBuyerName.getText() + " " + "+6" + txtBuyerPhone.getText() + "\n"+ bingsuFlavour + "\n"+ toppingsTotal;
+        String outMoney = "0.00";
+        String inMoney = String.valueOf(totalAmount);
+        if (rbPayNow.isSelected()) {
+            Status = "Paid";
+        } else {
+            Status = "Pending";
+        }
+        String datetime= String.valueOf(currentDateTime);
+        datetime = datetime.substring(0, datetime.length()-10);
+        try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO statement (StatementDescription, OutMoney, InMoney, DateTime) VALUES (?,?,?,?)")) {
+            preparedStatement.setString(1, description);
+            preparedStatement.setString(2, outMoney);
+            preparedStatement.setString(3, inMoney);
+            preparedStatement.setString(4, datetime);
+
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+
+            } else {
+                System.out.println("Failed to submit statement. Please try again.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public void calcWaffle (ActionEvent e) {
         if (chWaffle.isSelected()) {
@@ -277,13 +308,13 @@ public class CashierController {
             alert.setHeaderText("Select Payment Option!");
             alert.showAndWait();
         } else {
-            if (txtBuyerPhone.getText() == "" && txtBuyerName.getText() == "") {
+            if (txtBuyerPhone.getText().isBlank() && txtBuyerName.getText().isBlank()) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("ERROR");
                 alert.setHeaderText("Fill in Buyer Name and Phone Number!");
                 alert.showAndWait();
             } else {
-                if (bingsuFlavour == "") {
+                if (bingsuFlavour.isBlank()) {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("ERROR");
                     alert.setHeaderText("Select a flavour!");
@@ -301,7 +332,9 @@ public class CashierController {
                     if (toppingsTotal.endsWith(", ")) {
                         toppingsTotal = toppingsTotal.substring(0, toppingsTotal.length() - 2);
                     }
+                    monetaryProceed(event);
                     proceed(event);
+
 
                 }
             }
