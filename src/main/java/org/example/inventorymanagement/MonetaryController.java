@@ -39,6 +39,7 @@ public class MonetaryController implements Initializable {
     public Button btnInventory;
     public Button btnMoney;
     public Button btnAddStatement;
+    public FontAwesomeIconView iconRefresh;
 
     @FXML
     private TableView<Statements> statementsTable;
@@ -104,9 +105,6 @@ public class MonetaryController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setScene(scene);
         stage.show();
-    }
-    private void AddStatement(){
-
     }
 
     @FXML

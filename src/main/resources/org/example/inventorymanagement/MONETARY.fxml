@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
@@ -76,5 +77,6 @@
       <TextField layoutX="341.0" layoutY="346.0" prefHeight="26.0" prefWidth="118.0" promptText="RM" />
       <TextField layoutX="568.0" layoutY="346.0" prefHeight="26.0" prefWidth="135.0" promptText="RM" />
       <Button fx:id="btnAddStatement" layoutX="115.0" layoutY="346.0" mnemonicParsing="false" onAction="#setBtnAddStatement" prefHeight="26.0" prefWidth="118.0" text="Add Statement" />
+      <FontAwesomeIconView fx:id="iconRefresh" glyphName="REFRESH" layoutX="378.0" layoutY="115.0" onMouseClicked="#loadData" size="24" />
    </children>
 </AnchorPane>
