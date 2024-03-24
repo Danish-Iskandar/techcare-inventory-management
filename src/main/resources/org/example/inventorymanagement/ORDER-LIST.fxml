@@ -64,6 +64,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <FontAwesomeIconView glyphName="REFRESH" layoutX="414.0" layoutY="111.0" size="18" />
+      <FontAwesomeIconView fx:id="iconRefresh" glyphName="REFRESH" layoutX="414.0" layoutY="111.0" onMouseClicked="#loadData" size="18" />
    </children>
 </AnchorPane>

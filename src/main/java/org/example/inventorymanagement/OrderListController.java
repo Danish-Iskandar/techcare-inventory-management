@@ -40,7 +40,7 @@ public class OrderListController implements Initializable {
     public Button btnOrderList;
     public Button btnInventory;
     public Button btnMoney;
-
+    public FontAwesomeIconView iconRefresh;
 
     @FXML
     private TableView<Orders> ordersTable;
@@ -138,7 +138,7 @@ public class OrderListController implements Initializable {
 
     }
 
-    private void loadData(){
+    public void loadData(){
         connection = DBConnect.getConnect();
         refreshTable();
 

@@ -53,7 +53,6 @@ public class AddOrderController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
     }
     @FXML
     private void updateStatus(ActionEvent event) throws IOException {
