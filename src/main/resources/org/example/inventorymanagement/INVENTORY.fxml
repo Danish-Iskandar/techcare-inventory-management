@@ -33,13 +33,14 @@
       <Button fx:id="btnAddUtensil" layoutX="99.0" layoutY="97.0" mnemonicParsing="false" onAction="#openAddUtensil" prefHeight="38.0" prefWidth="94.0" text="ADD UTENSIL" />
       <Button fx:id="btnRemoveUtensil" layoutX="197.0" layoutY="97.0" mnemonicParsing="false" onAction="#openRemoveUtensil" prefHeight="38.0" prefWidth="112.0" text="REMOVE UTENSIL" />
       <Button fx:id="btnAddIngredient" layoutX="315.0" layoutY="97.0" mnemonicParsing="false" onAction="#openAddIngredient" prefHeight="38.0" prefWidth="135.0" text="ADD INGEREDIENT" />
-      <Button fx:id="btnRemoveIngredient" layoutX="455.0" layoutY="97.0" mnemonicParsing="false" onAction="#openRemoveIngredient" prefHeight="38.0" prefWidth="135.0" text="REMOVE INGREDIENT" />
-      <TableView layoutX="93.0" layoutY="177.0" prefHeight="214.0" prefWidth="498.0">
+      <Button fx:id="btnRemoveIngredient" layoutX="456.0" layoutY="97.0" mnemonicParsing="false" onAction="#openRemoveIngredient" prefHeight="38.0" prefWidth="135.0" text="REMOVE INGREDIENT" />
+      <TableView fx:id="itemsTable" layoutX="93.0" layoutY="177.0" prefHeight="214.0" prefWidth="498.0">
         <columns>
-          <TableColumn prefWidth="28.0" text="NO" />
-          <TableColumn prefWidth="211.199951171875" text="ITEM" />
-            <TableColumn minWidth="0.0" prefWidth="69.60003662109375" text="QUANTITY" />
-            <TableColumn prefWidth="181.5999755859375" text="REMARKS" />
+          <TableColumn fx:id="idCol" prefWidth="28.0" text="NO" />
+          <TableColumn fx:id="itemCol" prefWidth="166.0" text="ITEM" />
+            <TableColumn fx:id="quantityCol" minWidth="0.0" prefWidth="108.0" text="QUANTITY" />
+            <TableColumn fx:id="remarksCol" prefWidth="93.0" text="REMARKS" />
+            <TableColumn fx:id="editCol" prefWidth="91.0" text="INTERACT" />
         </columns>
       </TableView>
       <ChoiceBox fx:id="chbInventory" layoutX="96.0" layoutY="146.0" prefHeight="26.0" prefWidth="157.0" />
