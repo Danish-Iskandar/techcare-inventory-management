@@ -34,7 +34,7 @@ public class LoginController extends Component {
         String username = txtUsername.getText();
         String password = String.valueOf(txtPassword.getText());
 
-        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM userinfo WHERE Username=? AND Password=?")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM userinfo WHERE BINARY Username=? AND BINARY Password=?")) {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
 
