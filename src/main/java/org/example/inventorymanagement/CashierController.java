@@ -1,20 +1,27 @@
 package org.example.inventorymanagement;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.net.URL;
 import java.sql.*;
 
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class CashierController {
+public class CashierController implements Initializable {
     private Connection connection;
     public Button btnDashboard;
     public Button btnCashier;
@@ -40,6 +47,8 @@ public class CashierController {
     public Label lblAmount;
     public Button btnClearAll;
     public Label lbFlavour;
+    @FXML
+    private Label currentTime;
     public double totalAmount = 0, toppingPrice = 0;
     private static final DecimalFormat df = new DecimalFormat("0.00");
     public CashierController() {
@@ -56,37 +65,54 @@ public class CashierController {
     public void switchToDashboard(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
         stage.setScene(scene);
         stage.show();
     }
     public void switchToCashier(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("CASHIER.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
         stage.setScene(scene);
         stage.show();
     }
     public void switchToOrderList(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ORDER-LIST.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 750, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
         stage.setScene(scene);
         stage.show();
     }
     public void switchToInventory(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("INVENTORY.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
         stage.setScene(scene);
         stage.show();
     }
     public void switchToMonetary(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("MONETARY.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 750, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
         stage.setScene(scene);
         stage.show();
+    }
+    private void timeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            try {
+                while (true) { // Infinite loop
+                    Thread.sleep(1000);
+                    final String timeNow = timeFormat.format(new java.util.Date());
+                    Platform.runLater(() -> {
+                        currentTime.setText(timeNow);
+                    });
+                }
+            } catch (InterruptedException e) {
+                // Thread interrupted, do nothing
+            }
+        });
+        thread.start(); // Start the thread
     }
     public String bingsuFlavour="";
     public double mainFlavor;
@@ -339,5 +365,10 @@ public class CashierController {
                 }
             }
         }
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        timeNow();
     }
 }

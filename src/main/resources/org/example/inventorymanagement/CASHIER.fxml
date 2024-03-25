@@ -5,84 +5,89 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.CashierController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.CashierController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff61f" height="38.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Label layoutX="6.0" layoutY="7.0" prefHeight="28.0" prefWidth="135.0" text="TECHCARE STORE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnCashier" layoutY="106.0" mnemonicParsing="false" onAction="#switchToCashier" prefHeight="68.0" prefWidth="88.0" text="CASHIER" />
-      <Button fx:id="btnDashboard" layoutY="38.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="68.0" prefWidth="88.0" text="DASHBOARD" />
-      <Button fx:id="btnOrderList" layoutY="174.0" mnemonicParsing="false" onAction="#switchToOrderList" prefHeight="68.0" prefWidth="88.0" text="ORDER LIST" />
-      <Button fx:id="btnInventory" layoutY="242.0" mnemonicParsing="false" onAction="#switchToInventory" prefHeight="68.0" prefWidth="88.0" text="INVENTORY" />
-      <Button fx:id="btnMoney" layoutY="310.0" mnemonicParsing="false" onAction="#switchToMonetary" prefHeight="68.0" prefWidth="88.0" text="MONEY " />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutX="88.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="512.0" />
-      <Label layoutX="101.0" layoutY="51.0" prefHeight="28.0" prefWidth="222.0" text="CASHIER">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnChoc" layoutX="147.0" layoutY="151.0" mnemonicParsing="false" onAction="#Chocolate" prefHeight="68.0" prefWidth="85.0" text="Chocolate" />
-      <Button fx:id="btnMango" layoutX="243.0" layoutY="151.0" mnemonicParsing="false" onAction="#Mango" prefHeight="68.0" prefWidth="85.0" text="Mango" />
-      <Button fx:id="btnBandung" layoutX="145.0" layoutY="228.0" mnemonicParsing="false" onAction="#Bandung" prefHeight="68.0" prefWidth="85.0" text="Bandung" />
-      <Button fx:id="btnHoneydew" layoutX="243.0" layoutY="228.0" mnemonicParsing="false" onAction="#Honeydew" prefHeight="68.0" prefWidth="85.0" text="HoneyDew" />
-      <TextField fx:id="txtBuyerName" layoutX="158.0" layoutY="100.0" />
-      <TextField fx:id="txtBuyerPhone" layoutX="437.0" layoutY="101.0" />
-      <Label layoutX="101.0" layoutY="101.0" text="Name :">
+      <Button fx:id="btnChoc" layoutX="125.0" layoutY="183.0" mnemonicParsing="false" onAction="#Chocolate" prefHeight="68.0" prefWidth="85.0" text="Chocolate" />
+      <Button fx:id="btnMango" layoutX="249.0" layoutY="183.0" mnemonicParsing="false" onAction="#Mango" prefHeight="68.0" prefWidth="85.0" text="Mango" />
+      <Button fx:id="btnBandung" layoutX="125.0" layoutY="276.0" mnemonicParsing="false" onAction="#Bandung" prefHeight="68.0" prefWidth="85.0" text="Bandung" />
+      <Button fx:id="btnHoneydew" layoutX="249.0" layoutY="276.0" mnemonicParsing="false" onAction="#Honeydew" prefHeight="68.0" prefWidth="85.0" text="HoneyDew" />
+      <TextField fx:id="txtBuyerName" layoutX="113.0" layoutY="100.0" prefHeight="26.0" prefWidth="221.0" />
+      <TextField fx:id="txtBuyerPhone" layoutX="485.0" layoutY="100.0" prefHeight="26.0" prefWidth="222.0" />
+      <Label layoutX="56.0" layoutY="101.0" text="Name :">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="317.0" layoutY="101.0" text="Phone Number :">
+      <Label layoutX="365.0" layoutY="100.0" text="Phone Number :">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Separator layoutX="88.0" layoutY="129.0" prefHeight="8.0" prefWidth="512.0" />
-      <Separator layoutX="344.0" layoutY="132.0" orientation="VERTICAL" prefHeight="268.0" prefWidth="0.0" />
-      <Label layoutX="350.0" layoutY="137.0" text="TOPPING :">
+      <Separator layoutX="-5.0" layoutY="136.0" prefHeight="3.0" prefWidth="862.0" />
+      <Label layoutX="480.0" layoutY="157.0" text="TOPPING :">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <RadioButton fx:id="rbPayNow" layoutX="121.0" layoutY="342.0" mnemonicParsing="false" text="PAY NOW" />
-      <RadioButton fx:id="rbPayLater" layoutX="120.0" layoutY="362.0" mnemonicParsing="false" text="PAY UPON RECEIVE" />
-      <Label layoutX="96.0" layoutY="306.0" text="PAYMENT STATUS :">
+      <RadioButton fx:id="rbPayNow" layoutX="80.0" layoutY="407.0" mnemonicParsing="false" text="PAY NOW" />
+      <RadioButton fx:id="rbPayLater" layoutX="80.0" layoutY="434.0" mnemonicParsing="false" text="PAY UPON RECEIVE" />
+      <Label layoutX="61.0" layoutY="368.0" text="PAYMENT STATUS :">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Separator layoutX="88.0" layoutY="301.0" prefHeight="0.0" prefWidth="512.0" />
-      <Button fx:id="btnReset" layoutX="512.0" layoutY="262.0" mnemonicParsing="false" onAction="#resetButton" prefHeight="28.0" prefWidth="67.0" text="RESET" />
-      <Label layoutX="91.0" layoutY="131.0" text="MENU:">
+      <Button fx:id="btnReset" layoutX="723.0" layoutY="316.0" mnemonicParsing="false" onAction="#resetButton" prefHeight="28.0" prefWidth="67.0" text="RESET" />
+      <Label layoutX="61.0" layoutY="157.0" text="MENU:">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="354.0" layoutY="306.0" text="AMOUNT : RM">
+      <Label layoutX="427.0" layoutY="411.0" text="AMOUNT : RM">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label fx:id="lblAmount" layoutX="463.0" layoutY="306.0" text="0.00">
+      <Label fx:id="lblAmount" layoutX="536.0" layoutY="411.0" text="0.00">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnProceedCheckout" layoutX="528.0" layoutY="368.0" mnemonicParsing="false" onAction="#submitOrder" text="PROCEED" />
-      <Button fx:id="btnClearAll" layoutX="442.0" layoutY="368.0" mnemonicParsing="false" onAction="#setBtnClearAll" prefHeight="26.0" prefWidth="75.0" text="CLEAR ALL" />
-      <Pane layoutX="360.0" layoutY="164.0" prefHeight="109.0" prefWidth="126.0">
+      <Button fx:id="btnProceedCheckout" layoutX="723.0" layoutY="405.0" mnemonicParsing="false" onAction="#submitOrder" prefHeight="38.0" prefWidth="99.0" text="PROCEED" />
+      <Button fx:id="btnClearAll" layoutX="596.0" layoutY="405.0" mnemonicParsing="false" onAction="#setBtnClearAll" prefHeight="38.0" prefWidth="99.0" text="CLEAR ALL" />
+      <Pane layoutX="554.0" layoutY="155.0" prefHeight="191.0" prefWidth="146.0">
          <children>
-            <CheckBox fx:id="chWaffle" layoutX="7.0" mnemonicParsing="false" onAction="#calcWaffle" text="Waffle" />
-            <CheckBox fx:id="chIceCream" layoutX="7.0" layoutY="17.0" mnemonicParsing="false" onAction="#calcIceCream" text="Ice Cream" />
-            <CheckBox fx:id="chJelly" layoutX="7.0" layoutY="34.0" mnemonicParsing="false" onAction="#calcJelly" text="Jelly" />
-            <CheckBox fx:id="chChocChip" layoutX="7.0" layoutY="51.0" mnemonicParsing="false" onAction="#calcChocChip" text="Chocolate Chip" />
-            <CheckBox fx:id="chCaramelSyrup" layoutX="7.0" layoutY="68.0" mnemonicParsing="false" onAction="#calcCaramelSyrup" text="Caramel Syrup" />
-            <CheckBox fx:id="chChocSyrup" layoutX="7.0" layoutY="85.0" mnemonicParsing="false" onAction="#calcChocSyrup" text="Chocolate Syrup" />
+            <CheckBox fx:id="chWaffle" layoutX="7.0" layoutY="14.0" mnemonicParsing="false" onAction="#calcWaffle" text="Waffle" />
+            <CheckBox fx:id="chIceCream" layoutX="7.0" layoutY="47.0" mnemonicParsing="false" onAction="#calcIceCream" text="Ice Cream" />
+            <CheckBox fx:id="chJelly" layoutX="7.0" layoutY="80.0" mnemonicParsing="false" onAction="#calcJelly" text="Jelly" />
+            <CheckBox fx:id="chChocChip" layoutX="7.0" layoutY="110.0" mnemonicParsing="false" onAction="#calcChocChip" text="Chocolate Chip" />
+            <CheckBox fx:id="chCaramelSyrup" layoutX="7.0" layoutY="140.0" mnemonicParsing="false" onAction="#calcCaramelSyrup" text="Caramel Syrup" />
+            <CheckBox fx:id="chChocSyrup" layoutX="7.0" layoutY="171.0" mnemonicParsing="false" onAction="#calcChocSyrup" text="Chocolate Syrup" />
          </children>
       </Pane>
-      <Label fx:id="lbFlavour" layoutX="141.0" layoutY="135.0" prefHeight="17.0" prefWidth="85.0" />
+      <Label fx:id="lbFlavour" layoutX="114.0" layoutY="161.0" prefHeight="17.0" prefWidth="85.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff61f" height="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="854.0" />
+      <Label alignment="CENTER" layoutX="365.0" layoutY="5.0" prefHeight="28.0" prefWidth="124.0" text="TECHCARE STORE" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB" size="14.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="854.0" />
+      <Label alignment="CENTER" layoutX="28.0" layoutY="47.0" prefHeight="35.0" prefWidth="115.0" text="CASHIER" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="currentTime" alignment="CENTER" layoutX="789.0" layoutY="5.0" prefHeight="28.0" prefWidth="50.0" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="390.0" layoutY="136.0" orientation="VERTICAL" prefHeight="347.0" prefWidth="11.0" />
+      <Separator layoutX="-2.0" layoutY="358.0" prefHeight="10.0" prefWidth="862.0" />
+      <Button fx:id="btnDashboard" layoutX="3.0" layoutY="6.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="26.0" prefWidth="154.0" style="-fx-background-color: #fff61f;" text="&lt;- BACK TO DASHBOARD" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -42,8 +42,9 @@ public class LoginController extends Component {
                 if (resultSet.next()) {
                     FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+                    Scene scene = new Scene(fxmlLoader.load(), 854, 480);
                     stage.setScene(scene);
+                    stage.centerOnScreen();
                     stage.show();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
