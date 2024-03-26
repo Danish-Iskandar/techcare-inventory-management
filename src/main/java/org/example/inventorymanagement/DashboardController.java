@@ -1,8 +1,6 @@
 package org.example.inventorymanagement;
 
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,7 +26,6 @@ public class DashboardController implements Initializable {
     private Label currentTime;
     @FXML
     private Label currentDate;
-    private Thread thread;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timeNow();

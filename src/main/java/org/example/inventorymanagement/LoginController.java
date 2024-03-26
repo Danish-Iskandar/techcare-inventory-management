@@ -10,7 +10,6 @@ import java.sql.*;
 import javafx.stage.Stage;
 import javafx.scene.*;
 import javafx.scene.control.Alert;
-import javafx.stage.StageStyle;
 
 public class LoginController extends Component {
     public javafx.scene.control.Button btnLogin;

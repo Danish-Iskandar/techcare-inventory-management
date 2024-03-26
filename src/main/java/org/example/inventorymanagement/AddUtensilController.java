@@ -1,6 +1,8 @@
 package org.example.inventorymanagement;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -14,6 +16,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 public class AddUtensilController implements Initializable {
@@ -22,16 +25,33 @@ public class AddUtensilController implements Initializable {
     public TextField txtName;
     public TextField txtRemarks;
     public Spinner numberPicker;
+    @FXML private Label currentTime;
     Connection connection = null ;
 
     public void setBtnCancel(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("INVENTORY.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
         stage.setScene(scene);
         stage.show();
     }
-
+    private void timeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            try {
+                while (true) { // Infinite loop
+                    Thread.sleep(1000);
+                    final String timeNow = timeFormat.format(new java.util.Date());
+                    Platform.runLater(() -> {
+                        currentTime.setText(timeNow);
+                    });
+                }
+            } catch (InterruptedException e) {
+                // Thread interrupted, do nothing
+            }
+        });
+        thread.start(); // Start the thread
+    }
 
     public void addUtensil(ActionEvent event) throws IOException{
 

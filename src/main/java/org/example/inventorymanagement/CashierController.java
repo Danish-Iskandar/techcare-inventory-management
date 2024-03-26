@@ -24,10 +24,6 @@ import java.util.ResourceBundle;
 public class CashierController implements Initializable {
     private Connection connection;
     public Button btnDashboard;
-    public Button btnCashier;
-    public Button btnOrderList;
-    public Button btnInventory;
-    public Button btnMoney;
     public Button btnReset;
     public TextField txtBuyerName;
     public TextField txtBuyerPhone;
@@ -64,34 +60,6 @@ public class CashierController implements Initializable {
 
     public void switchToDashboard(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToCashier(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("CASHIER.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToOrderList(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ORDER-LIST.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToInventory(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("INVENTORY.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToMonetary(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("MONETARY.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 854, 480);
         stage.setScene(scene);
