@@ -1,6 +1,8 @@
 package org.example.inventorymanagement;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +28,31 @@ public class DashboardController implements Initializable {
     private Label currentTime;
     @FXML
     private Label currentDate;
+    private Thread thread;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        timeNow();
+    }
+    private void timeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, EEEE");
+            try {
+                while (!Thread.currentThread().isInterrupted()) { // Infinite loop
+                    Thread.sleep(1000);
+                    final String timeNow = timeFormat.format(new Date());
+                    final String dateNow = dateFormat.format(new Date());
+                    Platform.runLater(() -> {
+                        currentTime.setText(timeNow);
+                        currentDate.setText(dateNow);// This is the label
+                    });
+                }
+            } catch (InterruptedException e) {
+                // Thread interrupted, do nothing
+            }
+        });
+        thread.start(); // Start the thread
+    }
     public void switchToCashier(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("CASHIER.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -53,30 +80,5 @@ public class DashboardController implements Initializable {
         Scene scene = new Scene(fxmlLoader.load(), 854, 480);
         stage.setScene(scene);
         stage.show();
-    }
-    private void timeNow() {
-        Thread thread = new Thread(() -> {
-            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, EEEE");
-            try {
-                while (true) { // Infinite loop
-                    Thread.sleep(1000);
-                    final String timeNow = timeFormat.format(new Date());
-                    final String dateNow = dateFormat.format(new Date());
-                    Platform.runLater(() -> {
-                        currentTime.setText(timeNow);
-                        currentDate.setText(dateNow);// This is the label
-                    });
-                }
-            } catch (InterruptedException e) {
-                // Thread interrupted, do nothing
-            }
-        });
-        thread.start(); // Start the thread
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        timeNow();
     }
 }

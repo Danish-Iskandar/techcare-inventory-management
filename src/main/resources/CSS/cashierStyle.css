@@ -1,0 +1,41 @@
+#mainAnchor {
+    -fx-background-color: #EEF0EB;
+}
+#btnProceedCheckout {
+    -fx-background-radius: 20;
+    -fx-background-color: #78A083;
+    -fx-text-fill: white;
+}
+#btnProceedCheckout:hover {
+    -fx-background-radius: 20;
+    -fx-background-color: #50727B;
+    -fx-text-fill: white;
+}
+#btnProceedCheckout:pressed {
+    -fx-background-radius: 20;
+    -fx-background-color: #344955;
+    -fx-text-fill: white;
+}
+#btnClearAll {
+    -fx-background-radius: 20;
+    -fx-background-color: #FF204E;
+    -fx-text-fill: white;
+}
+#btnClearAll:hover {
+    -fx-background-radius: 20;
+    -fx-background-color: #A0153E;
+    -fx-text-fill: white;
+}
+#btnClearAll:pressed {
+    -fx-background-radius: 20;
+    -fx-background-color: #5D0E41;
+    -fx-text-fill: white;
+}
+#btnChoc, #btnMango, #btnBandung, #btnHoneydew {
+    -fx-background-radius: 20;
+}
+#btnClearAll {
+    -fx-background-radius: 20;
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}

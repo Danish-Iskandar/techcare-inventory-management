@@ -4,6 +4,7 @@ import Models.Orders;
 import Models.Statements;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +29,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,8 +41,11 @@ public class MonetaryController implements Initializable {
     public Button btnOrderList;
     public Button btnInventory;
     public Button btnMoney;
+    @FXML
+    private Label currentTime;
     public Button btnAddStatement;
     public FontAwesomeIconView iconRefresh;
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     @FXML
     private TableView<Statements> statementsTable;
@@ -64,6 +70,23 @@ public class MonetaryController implements Initializable {
     Statements statements = null ;
 
     ObservableList<Statements> StatementList = FXCollections.observableArrayList();
+    private void timeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            try {
+                while (true) { // Infinite loop
+                    Thread.sleep(1000);
+                    final String timeNow = timeFormat.format(new java.util.Date());
+                    Platform.runLater(() -> {
+                        currentTime.setText(timeNow);
+                    });
+                }
+            } catch (InterruptedException e) {
+                // Thread interrupted, do nothing
+            }
+        });
+        thread.start(); // Start the thread
+    }
     public void switchToDashboard(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("DASHBOARD.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -157,6 +180,7 @@ public class MonetaryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        timeNow();
         loadData();
     }
 }

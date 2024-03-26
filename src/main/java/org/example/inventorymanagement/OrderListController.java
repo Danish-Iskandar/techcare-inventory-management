@@ -3,6 +3,7 @@ package org.example.inventorymanagement;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import Models.Orders;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,6 +28,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,7 +43,8 @@ public class OrderListController implements Initializable {
     public Button btnInventory;
     public Button btnMoney;
     public FontAwesomeIconView iconRefresh;
-
+    @FXML
+    private Label currentTime;
     @FXML
     private TableView<Orders> ordersTable;
     @FXML
@@ -105,7 +108,23 @@ public class OrderListController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    private void timeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            try {
+                while (true) { // Infinite loop
+                    Thread.sleep(1000);
+                    final String timeNow = timeFormat.format(new java.util.Date());
+                    Platform.runLater(() -> {
+                        currentTime.setText(timeNow);
+                    });
+                }
+            } catch (InterruptedException e) {
+                // Thread interrupted, do nothing
+            }
+        });
+        thread.start(); // Start the thread
+    }
 
     @FXML
     public void refreshTable() {
@@ -249,6 +268,7 @@ public class OrderListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadData();
+        timeNow();
     }
 }
 

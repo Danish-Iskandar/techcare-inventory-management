@@ -1,22 +1,18 @@
+#mainAnchor {
+    -fx-background-color: #EEF0EB;
+}
 #lblLogin {
     -fx-background-radius: 30;
     -fx-text-alignment: center;
-    -fx-background-color: moccasin;
-    -fx-text-fill: dimgrey;
+    -fx-background-color: #618DAB;
+    -fx-text-fill: white;
 }
-
 #btnLogin {
     -fx-background-radius: 15;
 }
-
-#mainAnchor {
-    -fx-background-color: floralwhite;
-}
-
 #txtUsername {
     -fx-background-radius: 30;
 }
-
 #txtPassword {
     -fx-background-radius: 30;
 }

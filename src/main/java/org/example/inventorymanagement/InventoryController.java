@@ -4,6 +4,7 @@ import Models.ItemStateSingleton;
 import Models.Items;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,6 +31,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -51,6 +54,9 @@ public class InventoryController implements Initializable {
     public Button btnRemoveUtensil;
     public Button btnAddIngredient;
     public Button btnRemoveIngredient;
+    @FXML
+    private Label currentTime;
+    private static final DecimalFormat df = new DecimalFormat("0.00");
     @FXML
     private ChoiceBox<String> chbInventory;
     private String[] inventoryChoice = {"Utensil", "Ingredient"};
@@ -78,11 +84,29 @@ public class InventoryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        timeNow();
         chbInventory.getItems().addAll(inventoryChoice);
         chbInventory.setOnAction(this::getInventoryChoice);
         chbInventory.setValue("Utensil");
         itemStateSingleton.setItemState("Utensil");
         loadItem();
+    }
+    private void timeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            try {
+                while (true) { // Infinite loop
+                    Thread.sleep(1000);
+                    final String timeNow = timeFormat.format(new java.util.Date());
+                    Platform.runLater(() -> {
+                        currentTime.setText(timeNow);
+                    });
+                }
+            } catch (InterruptedException e) {
+                // Thread interrupted, do nothing
+            }
+        });
+        thread.start(); // Start the thread
     }
     public void getInventoryChoice (ActionEvent event) {
         String invChoice = chbInventory.getValue();
