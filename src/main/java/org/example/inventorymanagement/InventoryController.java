@@ -4,6 +4,7 @@ import Models.ItemStateSingleton;
 import Models.Items;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -30,6 +31,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -44,9 +46,9 @@ public class InventoryController implements Initializable {
 
     public Button btnDashboard;
     public Button btnAddUtensil;
-    public Button btnRemoveUtensil;
     public Button btnAddIngredient;
-    public Button btnRemoveIngredient;
+    @FXML
+    private Label currentTime;
     @FXML
     private ChoiceBox<String> chbInventory;
     private String[] inventoryChoice = {"Utensil", "Ingredient"};
@@ -72,8 +74,27 @@ public class InventoryController implements Initializable {
 
     ObservableList<Items> ItemList = FXCollections.observableArrayList();
 
+    private void timeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            try {
+                while (true) { // Infinite loop
+                    Thread.sleep(1000);
+                    final String timeNow = timeFormat.format(new java.util.Date());
+                    Platform.runLater(() -> {
+                        currentTime.setText(timeNow);
+                    });
+                }
+            } catch (InterruptedException e) {
+                // Thread interrupted, do nothing
+            }
+        });
+        thread.start(); // Start the thread
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        timeNow();
         chbInventory.getItems().addAll(inventoryChoice);
         chbInventory.setOnAction(this::getInventoryChoice);
         chbInventory.setValue("Utensil");
@@ -268,34 +289,6 @@ public class InventoryController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToCashier(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("CASHIER.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToOrderList(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ORDER-LIST.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToInventory(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("INVENTORY.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToMonetary(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("MONETARY.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
     public void openAddUtensil(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ADD_UTENSIL.fxml"));
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -305,20 +298,6 @@ public class InventoryController implements Initializable {
     }
     public void openAddIngredient(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ADD_INGREDIENT.fxml"));
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void openRemoveUtensil(ActionEvent e) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("REMOVE_UTENSIL.fxml"));
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void openRemoveIngredient(ActionEvent e) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("REMOVE_INGREDIENT.fxml"));
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setScene(scene);

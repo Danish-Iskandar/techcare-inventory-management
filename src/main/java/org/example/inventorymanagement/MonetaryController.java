@@ -4,6 +4,7 @@ import Models.Orders;
 import Models.Statements;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,17 +29,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MonetaryController implements Initializable {
     public Button btnDashboard;
-    public Button btnCashier;
-    public Button btnOrderList;
-    public Button btnInventory;
-    public Button btnMoney;
     public Button btnAddStatement;
+    @FXML
+    private Label currentTime;
     public FontAwesomeIconView iconRefresh;
 
     @FXML
@@ -71,34 +71,6 @@ public class MonetaryController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public void switchToCashier(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("CASHIER.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToOrderList(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("ORDER-LIST.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToInventory(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("INVENTORY.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
-    public void switchToMonetary(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("MONETARY.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
-        stage.setScene(scene);
-        stage.show();
-    }
     public void setBtnAddStatement(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("AddStatement.fxml"));
         Stage stage = new Stage();
@@ -106,7 +78,23 @@ public class MonetaryController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
+    private void timeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            try {
+                while (true) { // Infinite loop
+                    Thread.sleep(1000);
+                    final String timeNow = timeFormat.format(new java.util.Date());
+                    Platform.runLater(() -> {
+                        currentTime.setText(timeNow);
+                    });
+                }
+            } catch (InterruptedException e) {
+                // Thread interrupted, do nothing
+            }
+        });
+        thread.start(); // Start the thread
+    }
     @FXML
     public void refreshTable() {
         try {
@@ -157,6 +145,7 @@ public class MonetaryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        timeNow();
         loadData();
     }
 }
