@@ -2,10 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -13,70 +10,53 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.MonetaryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.MonetaryController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff61f" height="38.0" stroke="BLACK" strokeType="INSIDE" width="750.0" />
-      <Label layoutX="6.0" layoutY="7.0" prefHeight="28.0" prefWidth="135.0" text="TECHCARE STORE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnMoney" layoutY="310.0" mnemonicParsing="false" onAction="#switchToMonetary" prefHeight="68.0" prefWidth="88.0" text="MONEY " />
-      <Button fx:id="btnDashboard" layoutY="38.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="68.0" prefWidth="88.0" text="DASHBOARD" />
-      <Button fx:id="btnCashier" layoutY="106.0" mnemonicParsing="false" onAction="#switchToCashier" prefHeight="68.0" prefWidth="88.0" text="CASHIER" />
-      <Button fx:id="btnOrderList" layoutY="174.0" mnemonicParsing="false" onAction="#switchToOrderList" prefHeight="68.0" prefWidth="88.0" text="ORDER LIST" />
-      <Button fx:id="btnInventory" layoutY="242.0" mnemonicParsing="false" onAction="#switchToInventory" prefHeight="68.0" prefWidth="88.0" text="INVENTORY" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutX="88.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="662.0" />
-      <Label layoutX="101.0" layoutY="51.0" prefHeight="28.0" prefWidth="222.0" text="MONETARY">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <RadioButton layoutX="95.0" layoutY="98.0" mnemonicParsing="false" text="ALL" />
-      <RadioButton layoutX="168.0" layoutY="97.0" mnemonicParsing="false" text="COMPLETED" />
-      <RadioButton layoutX="290.0" layoutY="97.0" mnemonicParsing="false" text="RETURN" />
-      <ComboBox layoutX="378.0" layoutY="127.0" prefHeight="26.0" prefWidth="135.0" />
-      <Label layoutX="325.0" layoutY="129.0" text="SHOW :">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <ComboBox layoutX="592.0" layoutY="127.0" prefHeight="26.0" prefWidth="135.0" />
-      <Label layoutX="526.0" layoutY="129.0" text="ENTRIES :">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <TextField layoutX="101.0" layoutY="126.0" prefHeight="26.0" prefWidth="206.0" promptText="SEARCH" />
-      <TableView fx:id="statementsTable" layoutX="94.0" layoutY="163.0" prefHeight="174.0" prefWidth="650.0">
+      <TableView fx:id="statementsTable" layoutX="6.0" layoutY="141.0" prefHeight="286.0" prefWidth="838.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="33.0" text="NO" />
-          <TableColumn fx:id="descCol" prefWidth="204.00001525878906" text="DESCRIPTION" />
-            <TableColumn fx:id="outCol" prefWidth="59.20001220703125" text="OUT" />
-            <TableColumn fx:id="inCol" prefWidth="54.39996337890625" text="IN" />
-            <TableColumn fx:id="datetimeCol" prefWidth="126.39996337890625" text="DATE" />
-            <TableColumn fx:id="remarksCol" prefWidth="164.7999267578125" text="REMARKS" />
+          <TableColumn fx:id="descCol" prefWidth="244.0000114440918" text="DESCRIPTION" />
+            <TableColumn fx:id="outCol" prefWidth="54.4000244140625" text="OUT" />
+            <TableColumn fx:id="inCol" prefWidth="53.5999755859375" text="IN" />
+            <TableColumn fx:id="datetimeCol" prefWidth="164.79998779296875" text="DATE" />
+            <TableColumn fx:id="remarksCol" prefWidth="269.60003662109375" text="REMARKS" />
         </columns>
       </TableView>
-      <DatePicker layoutX="521.0" layoutY="94.0" prefHeight="26.0" prefWidth="205.0" />
-      <Label layoutX="460.0" layoutY="96.0" text="FROM :">
+      <Label layoutX="398.0" layoutY="434.0" text="TOTAL IN :">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="269.0" layoutY="348.0" text="TOTAL IN :">
+      <Label layoutX="609.0" layoutY="434.0" text="TOTAL OUT :">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="480.0" layoutY="348.0" text="TOTAL OUT :">
+      <TextField layoutX="470.0" layoutY="432.0" prefHeight="26.0" prefWidth="118.0" promptText="RM" />
+      <TextField layoutX="697.0" layoutY="432.0" prefHeight="26.0" prefWidth="135.0" promptText="RM" />
+      <Button fx:id="btnAddStatement" layoutX="20.0" layoutY="105.0" mnemonicParsing="false" onAction="#setBtnAddStatement" prefHeight="26.0" prefWidth="118.0" text="Add Statement" />
+      <FontAwesomeIconView fx:id="iconRefresh" glyphName="REFRESH" layoutX="167.0" layoutY="126.0" onMouseClicked="#loadData" size="24" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b8ab" height="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="854.0" />
+      <Label alignment="CENTER" layoutX="365.0" layoutY="5.0" prefHeight="28.0" prefWidth="124.0" text="TECHCARE STORE" textAlignment="CENTER">
          <font>
-            <Font size="15.0" />
+            <Font name="Berlin Sans FB" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="341.0" layoutY="346.0" prefHeight="26.0" prefWidth="118.0" promptText="RM" />
-      <TextField layoutX="568.0" layoutY="346.0" prefHeight="26.0" prefWidth="135.0" promptText="RM" />
-      <Button fx:id="btnAddStatement" layoutX="115.0" layoutY="346.0" mnemonicParsing="false" onAction="#setBtnAddStatement" prefHeight="26.0" prefWidth="118.0" text="Add Statement" />
-      <FontAwesomeIconView fx:id="iconRefresh" glyphName="REFRESH" layoutX="378.0" layoutY="115.0" onMouseClicked="#loadData" size="24" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#284b63" height="53.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="854.0" />
+      <Label alignment="CENTER" layoutX="28.0" layoutY="47.0" prefHeight="35.0" prefWidth="139.0" text="MONETARY" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="currentTime" alignment="CENTER" layoutX="766.0" layoutY="5.0" prefHeight="28.0" prefWidth="73.0" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnDashboard" layoutX="6.0" layoutY="6.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="26.0" prefWidth="173.0" style="-fx-background-color: b4b8ab;" text="&lt;- RETURN TO DASHBOARD">
+         <font>
+            <Font name="Berlin Sans FB" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -10,39 +10,42 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.InventoryController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="854.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.inventorymanagement.InventoryController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fff61f" height="38.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-      <Label layoutX="6.0" layoutY="7.0" prefHeight="28.0" prefWidth="135.0" text="TECHCARE STORE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnInventory" layoutY="242.0" mnemonicParsing="false" onAction="#switchToInventory" prefHeight="68.0" prefWidth="88.0" text="INVENTORY" />
-      <Button fx:id="btnDashboard" layoutY="38.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="68.0" prefWidth="88.0" text="DASHBOARD" />
-      <Button fx:id="btnCashier" layoutY="106.0" mnemonicParsing="false" onAction="#switchToCashier" prefHeight="68.0" prefWidth="88.0" text="CASHIER" />
-      <Button fx:id="btnOrderList" layoutY="174.0" mnemonicParsing="false" onAction="#switchToOrderList" prefHeight="68.0" prefWidth="88.0" text="ORDER LIST" />
-      <Button fx:id="btnMoney" layoutY="310.0" mnemonicParsing="false" onAction="#switchToMonetary" prefHeight="68.0" prefWidth="88.0" text="MONEY " />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="53.0" layoutX="88.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" width="512.0" />
-      <Label layoutX="101.0" layoutY="51.0" prefHeight="28.0" prefWidth="222.0" text="INVENTORY">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
       <Separator layoutX="88.0" layoutY="138.0" prefHeight="8.0" prefWidth="512.0" />
       <Button fx:id="btnAddUtensil" layoutX="99.0" layoutY="97.0" mnemonicParsing="false" onAction="#openAddUtensil" prefHeight="38.0" prefWidth="94.0" text="ADD UTENSIL" />
-      <Button fx:id="btnRemoveUtensil" layoutX="197.0" layoutY="97.0" mnemonicParsing="false" onAction="#openRemoveUtensil" prefHeight="38.0" prefWidth="112.0" text="REMOVE UTENSIL" />
-      <Button fx:id="btnAddIngredient" layoutX="315.0" layoutY="97.0" mnemonicParsing="false" onAction="#openAddIngredient" prefHeight="38.0" prefWidth="135.0" text="ADD INGEREDIENT" />
-      <Button fx:id="btnRemoveIngredient" layoutX="456.0" layoutY="97.0" mnemonicParsing="false" onAction="#openRemoveIngredient" prefHeight="38.0" prefWidth="135.0" text="REMOVE INGREDIENT" />
-      <TableView fx:id="itemsTable" layoutX="93.0" layoutY="177.0" prefHeight="214.0" prefWidth="498.0">
+      <Button fx:id="btnAddIngredient" layoutX="698.0" layoutY="97.0" mnemonicParsing="false" onAction="#openAddIngredient" prefHeight="38.0" prefWidth="135.0" text="ADD INGEREDIENT" />
+      <TableView fx:id="itemsTable" layoutX="8.0" layoutY="149.0" prefHeight="319.0" prefWidth="838.0">
         <columns>
           <TableColumn fx:id="idCol" prefWidth="28.0" text="NO" />
-          <TableColumn fx:id="itemCol" prefWidth="166.0" text="ITEM" />
-            <TableColumn fx:id="quantityCol" minWidth="0.0" prefWidth="108.0" text="QUANTITY" />
-            <TableColumn fx:id="remarksCol" prefWidth="93.0" text="REMARKS" />
-            <TableColumn fx:id="editCol" prefWidth="91.0" text="INTERACT" />
+          <TableColumn fx:id="itemCol" prefWidth="336.7999687194824" text="ITEM" />
+            <TableColumn fx:id="quantityCol" minWidth="0.0" prefWidth="77.60003662109375" text="QUANTITY" />
+            <TableColumn fx:id="remarksCol" prefWidth="300.79998779296875" text="REMARKS" />
+            <TableColumn fx:id="editCol" prefWidth="82.4000244140625" text="INTERACT" />
         </columns>
       </TableView>
-      <ChoiceBox fx:id="chbInventory" layoutX="96.0" layoutY="146.0" prefHeight="26.0" prefWidth="157.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b8ab" height="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="854.0" />
+      <Label alignment="CENTER" layoutX="365.0" layoutY="5.0" prefHeight="28.0" prefWidth="124.0" text="TECHCARE STORE" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB" size="14.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#284b63" height="53.0" layoutY="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="854.0" />
+      <Label alignment="CENTER" layoutX="28.0" layoutY="47.0" prefHeight="35.0" prefWidth="142.0" text="INVENTORY" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="currentTime" alignment="CENTER" layoutX="766.0" layoutY="5.0" prefHeight="28.0" prefWidth="73.0" textAlignment="CENTER">
+         <font>
+            <Font name="Berlin Sans FB" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnDashboard" layoutX="1.0" layoutY="6.0" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="26.0" prefWidth="173.0" style="-fx-background-color: b4b8ab;" text="&lt;- RETURN TO DASHBOARD">
+         <font>
+            <Font name="Berlin Sans FB" size="12.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="chbInventory" layoutX="269.0" layoutY="103.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

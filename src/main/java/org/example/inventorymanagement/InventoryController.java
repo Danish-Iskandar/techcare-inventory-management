@@ -43,10 +43,6 @@ public class InventoryController implements Initializable {
     String currentState = itemStateSingleton.getItemState();
 
     public Button btnDashboard;
-    public Button btnCashier;
-    public Button btnOrderList;
-    public Button btnInventory;
-    public Button btnMoney;
     public Button btnAddUtensil;
     public Button btnRemoveUtensil;
     public Button btnAddIngredient;
@@ -90,7 +86,7 @@ public class InventoryController implements Initializable {
         if (Objects.equals(invChoice, "Utensil")) {
             System.out.println(invChoice);
             itemStateSingleton.setItemState("Utensil");
-            btnAddIngredient.setVisible(false); btnRemoveIngredient.setVisible(false); btnRemoveUtensil.setVisible((false));
+            btnAddIngredient.setVisible(false);
             btnAddUtensil.setVisible(true);
             loadItem();
 
@@ -98,8 +94,7 @@ public class InventoryController implements Initializable {
             System.out.println(invChoice);
             itemStateSingleton.setItemState("Ingredient");
             btnAddIngredient.setLayoutX(99); btnAddIngredient.setLayoutY(97);
-            btnRemoveIngredient.setLayoutX(253); btnRemoveIngredient.setLayoutY(97);
-            btnAddUtensil.setVisible(false); btnRemoveUtensil.setVisible(false);
+            btnAddUtensil.setVisible(false);
             btnAddIngredient.setVisible(true);
             loadItem();
         } else {
