@@ -147,7 +147,7 @@ public class OrderListController implements Initializable {
                     } else {
 
                         FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                        FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL);
+                        FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.CHECK);
 
                         deleteIcon.setStyle(
                                 " -fx-cursor: hand ;"
