@@ -39,6 +39,10 @@ public class MonetaryController implements Initializable {
     public Button btnAddStatement;
     @FXML
     private Label currentTime;
+    @FXML
+    private TextField txtInMoney;
+    @FXML
+    private TextField txtOutMoney;
     public FontAwesomeIconView iconRefresh;
 
     @FXML
@@ -62,6 +66,8 @@ public class MonetaryController implements Initializable {
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
     Statements statements = null ;
+    Double inMoney = 0.00;
+    Double outMoney = 0.00;
 
     ObservableList<Statements> StatementList = FXCollections.observableArrayList();
     public void switchToDashboard(ActionEvent event) throws IOException {
@@ -99,6 +105,8 @@ public class MonetaryController implements Initializable {
     public void refreshTable() {
         try {
             StatementList.clear();
+            inMoney= 0.00;
+            outMoney= 0.00;
 
             query = "SELECT * FROM `statement`";
             preparedStatement = connection.prepareStatement(query);
@@ -113,6 +121,16 @@ public class MonetaryController implements Initializable {
                         resultSet.getString("StatementRemarks"),
                         resultSet.getTimestamp("DateTime").toLocalDateTime()));
                 statementsTable.setItems(StatementList);
+
+                Statements statements = new Statements(
+                        resultSet.getInt("StatementID"),
+                        resultSet.getString("StatementDescription"),
+                        resultSet.getString("OutMoney"),
+                        resultSet.getString("InMoney"),
+                        resultSet.getString("StatementRemarks"),
+                        resultSet.getTimestamp("DateTime").toLocalDateTime());
+                inMoney += Double.valueOf(statements.getInMoney());
+                outMoney += Double.valueOf(statements.getOutMoney());
 
             }
 
@@ -136,15 +154,13 @@ public class MonetaryController implements Initializable {
         remarksCol.setCellValueFactory(new PropertyValueFactory<>("StatementRemarks"));
         datetimeCol.setCellValueFactory(new PropertyValueFactory<>("DateTime"));
         statementsTable.setItems(StatementList);
+        String formattedInMoney = String.format("%.2f", inMoney);
+        String formattedOutMoney = String.format("%.2f", outMoney);
+        txtInMoney.setText(String.valueOf(formattedInMoney));
+        txtOutMoney.setText(String.valueOf(formattedOutMoney));
 
 
     }
-
-    public void countMoney(){
-
-    }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

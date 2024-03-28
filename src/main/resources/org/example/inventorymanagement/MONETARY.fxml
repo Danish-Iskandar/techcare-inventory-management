@@ -32,8 +32,8 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField editable="false" layoutX="470.0" layoutY="432.0" prefHeight="26.0" prefWidth="118.0" promptText="RM" />
-      <TextField editable="false" layoutX="697.0" layoutY="432.0" prefHeight="26.0" prefWidth="135.0" promptText="RM" />
+      <TextField fx:id="txtInMoney" editable="false" layoutX="470.0" layoutY="432.0" prefHeight="26.0" prefWidth="118.0" promptText="RM" />
+      <TextField fx:id="txtOutMoney" editable="false" layoutX="697.0" layoutY="432.0" prefHeight="26.0" prefWidth="135.0" promptText="RM" />
       <Button fx:id="btnAddStatement" layoutX="20.0" layoutY="105.0" mnemonicParsing="false" onAction="#setBtnAddStatement" prefHeight="26.0" prefWidth="118.0" text="Add Statement" />
       <FontAwesomeIconView fx:id="iconRefresh" fill="#222020" glyphName="REFRESH" layoutX="167.0" layoutY="126.0" onMouseClicked="#loadData" selectionEnd="1" selectionFill="#050505" selectionStart="1" size="24" stroke="WHITE" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b8ab" height="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="854.0" />

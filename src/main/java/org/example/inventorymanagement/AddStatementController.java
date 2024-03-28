@@ -35,6 +35,8 @@ public class AddStatementController {
         String description = txtDesc.getText();
         String outMoney = txtOut.getText();
         String inMoney = txtIn.getText();
+        String formattedInMoney = String.format("%.2f", inMoney);
+        String formattedOutMoney = String.format("%.2f", outMoney);
         String remarks = txtRemarks.getText();
         if (txtRemarks.getText().isBlank()) {
             remarks = "";
@@ -45,8 +47,8 @@ public class AddStatementController {
         datetime = datetime.substring(0, datetime.length() - 10);
         try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO statement (StatementDescription, OutMoney, InMoney, DateTime, StatementRemarks) VALUES (?,?,?,?,?)")) {
             preparedStatement.setString(1, description);
-            preparedStatement.setString(2, outMoney);
-            preparedStatement.setString(3, inMoney);
+            preparedStatement.setString(2, formattedOutMoney);
+            preparedStatement.setString(3, formattedInMoney);
             preparedStatement.setString(4, datetime);
             preparedStatement.setString(5, remarks);
 
