@@ -67,7 +67,7 @@ public class InventoryController implements Initializable {
     private TableColumn<Items, String> editCol;
 
     String query = null;
-    Connection connection = null ;
+    Connection connection = DBConnect.getConnect() ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
     Items items = null ;
@@ -170,7 +170,6 @@ public class InventoryController implements Initializable {
     }
 
     public void loadItem(){
-        connection = DBConnect.getConnect();
         refreshTable();
 
 
@@ -221,7 +220,7 @@ public class InventoryController implements Initializable {
                                         query = "DELETE FROM `ingredientlist` WHERE IngredientID  ="+items.getItemsID();
                                     }
 
-                                    connection = DBConnect.getConnect();
+
                                     preparedStatement = connection.prepareStatement(query);
                                     preparedStatement.execute();
                                     refreshTable();

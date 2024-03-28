@@ -40,7 +40,7 @@ public class EditItemController implements Initializable {
 
 
     String query = null;
-    Connection connection= null;
+    Connection connection= DBConnect.getConnect();
     ResultSet resultSet = null;
     PreparedStatement preparedStatement;
     Items items = null;
@@ -92,7 +92,6 @@ public class EditItemController implements Initializable {
     @FXML
     private void updateStatus(ActionEvent event) throws IOException {
 
-        connection = DBConnect.getConnect();
         String ItemName = itemFld.getText();
         int ItemQuantity = (int) quantityFld.getValue();
         String ItemRemarks = remarksFld.getText();

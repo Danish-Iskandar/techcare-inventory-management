@@ -25,7 +25,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <FontAwesomeIconView fx:id="iconRefresh" glyphName="REFRESH" layoutX="28.0" layoutY="118.0" onMouseClicked="#loadData" size="18" />
+      <FontAwesomeIconView fx:id="iconRefresh" glyphName="REFRESH" layoutX="28.0" layoutY="118.0" onMouseClicked="#loadData" size="24" stroke="WHITE" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b4b8ab" height="38.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="854.0" />
       <Label alignment="CENTER" layoutX="365.0" layoutY="5.0" prefHeight="28.0" prefWidth="124.0" text="TECHCARE STORE" textAlignment="CENTER">
          <font>

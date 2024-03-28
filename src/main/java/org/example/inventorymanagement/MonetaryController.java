@@ -58,7 +58,7 @@ public class MonetaryController implements Initializable {
 
 
     String query = null;
-    Connection connection = null ;
+    Connection connection = DBConnect.getConnect() ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
     Statements statements = null ;
@@ -126,7 +126,6 @@ public class MonetaryController implements Initializable {
     }
 
     public void loadData(){
-        connection = DBConnect.getConnect();
         refreshTable();
 
 
@@ -141,12 +140,17 @@ public class MonetaryController implements Initializable {
 
     }
 
+    public void countMoney(){
+
+    }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timeNow();
         loadData();
+
     }
 }
 

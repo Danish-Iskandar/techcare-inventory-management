@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 import org.example.inventorymanagement.OrderListController;
 
 
-public class AddOrderController implements Initializable {
+public class AddOrderController extends OrderListController implements Initializable {
 
     @FXML
     private TextField ordernameFld;
@@ -44,7 +44,7 @@ public class AddOrderController implements Initializable {
 
 
     String query = null;
-    Connection connection= null;
+    Connection connection= DBConnect.getConnect();
     ResultSet resultSet = null;
     PreparedStatement preparedStatement;
     Orders orders = null;
@@ -57,7 +57,6 @@ public class AddOrderController implements Initializable {
     @FXML
     private void updateStatus(ActionEvent event) throws IOException {
 
-        connection = DBConnect.getConnect();
         String OrderName = ordernameFld.getText();
         String OrderPhone = orderphoneFld.getText();
         String Flavour = flavourFld.getText();
@@ -71,6 +70,7 @@ public class AddOrderController implements Initializable {
         alert.setTitle("STATUS UPDATED");
         alert.setHeaderText("Status updated! Please reload the page to update the table.");
         alert.showAndWait();
+        loadData();
         stage.close();
     }
     private void getQuery() {

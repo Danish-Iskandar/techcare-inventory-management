@@ -60,7 +60,7 @@ public class OrderListController implements Initializable {
     private TableColumn<Orders, String> editCol;
 
     String query = null;
-    Connection connection = null ;
+    Connection connection = DBConnect.getConnect() ;
     PreparedStatement preparedStatement = null ;
     ResultSet resultSet = null ;
     Orders orders = null ;
@@ -110,7 +110,6 @@ public class OrderListController implements Initializable {
                         resultSet.getString("Status"),
                         resultSet.getTimestamp("DateTime").toLocalDateTime()));
                 ordersTable.setItems(OrderList);
-
             }
 
 
@@ -123,7 +122,6 @@ public class OrderListController implements Initializable {
     }
 
     public void loadData(){
-        connection = DBConnect.getConnect();
         refreshTable();
 
 
@@ -149,7 +147,7 @@ public class OrderListController implements Initializable {
                     } else {
 
                         FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                        FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
+                        FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL);
 
                         deleteIcon.setStyle(
                                 " -fx-cursor: hand ;"
@@ -187,15 +185,29 @@ public class OrderListController implements Initializable {
 
                         });
                         editIcon.setOnMouseClicked((MouseEvent event) -> {
+                            try {
+                                orders = ordersTable.getSelectionModel().getSelectedItem();
+                                ordersTable.getSelectionModel().getSelectedItem();
 
-                            orders = ordersTable.getSelectionModel().getSelectedItem();
-                            FXMLLoader loader = new FXMLLoader ();
+                                query = "UPDATE `orderlist` SET "
+                                        + "`Status`= ? WHERE OrderID = '" + orders.getOrderID() + "'";
+
+                                preparedStatement = connection.prepareStatement(query);
+                                preparedStatement.setString(1, "Completed");
+                                preparedStatement.execute();
+                            } catch (SQLException e) {
+                                throw new RuntimeException(e);
+                            }
+                            refreshTable();
+
+
+                            /*FXMLLoader loader = new FXMLLoader ();
                             loader.setLocation(getClass().getResource("/org/example/inventorymanagement/EDIT-ORDER.fxml"));
                             try {
                                 loader.load();
                             } catch (IOException ex) {
                                 Logger.getLogger(OrderListController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
+                            }*
 
                             AddOrderController addOrderController = loader.getController();
                             addOrderController.setUpdate(true);
@@ -205,7 +217,7 @@ public class OrderListController implements Initializable {
                             Stage stage = new Stage();
                             stage.setScene(new Scene(parent));
                             stage.initStyle(StageStyle.UTILITY);
-                            stage.show();
+                            stage.show();*/
                         });
 
                         HBox managebtn = new HBox(editIcon, deleteIcon);
