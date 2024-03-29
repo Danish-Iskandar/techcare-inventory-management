@@ -33,8 +33,8 @@ public class AddStatementController {
 
 
         String description = txtDesc.getText();
-        String outMoney = txtOut.getText();
-        String inMoney = txtIn.getText();
+        Double outMoney = Double.valueOf(txtOut.getText());
+        Double inMoney = Double.valueOf(txtIn.getText());
         String formattedInMoney = String.format("%.2f", inMoney);
         String formattedOutMoney = String.format("%.2f", outMoney);
         String remarks = txtRemarks.getText();

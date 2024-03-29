@@ -15,11 +15,11 @@
         <columns>
           <TableColumn fx:id="idCol" prefWidth="31.600006103515625" resizable="false" text="ID" />
           <TableColumn fx:id="nameCol" prefWidth="138.3999900817871" resizable="false" text="ORDER NAME" />
-            <TableColumn fx:id="flavourCol" prefWidth="72.80000305175781" resizable="false" text="FLAVOUR" />
-            <TableColumn fx:id="toppingsCol" prefWidth="247.99993896484375" resizable="false" text="TOPPINGS" />
-            <TableColumn fx:id="statusCol" prefWidth="72.0" resizable="false" text="STATUS" />
-            <TableColumn fx:id="datetimeCol" prefWidth="148.7999267578125" resizable="false" text="DATE" />
-            <TableColumn fx:id="editCol" prefWidth="92.800048828125" resizable="false" text="INTERACT" />
+            <TableColumn fx:id="flavourCol" prefWidth="107.19996643066406" resizable="false" text="FLAVOUR" />
+            <TableColumn fx:id="toppingsCol" prefWidth="223.2000732421875" resizable="false" text="TOPPINGS" />
+            <TableColumn fx:id="statusCol" prefWidth="99.99993896484375" resizable="false" text="STATUS" />
+            <TableColumn fx:id="datetimeCol" prefWidth="123.199951171875" resizable="false" text="DATE" />
+            <TableColumn fx:id="editCol" prefWidth="88.7999267578125" resizable="false" text="INTERACT" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

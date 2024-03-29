@@ -27,7 +27,7 @@ public class AddUtensilController implements Initializable {
     public void setBtnCancel(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("INVENTORY.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 854, 480);
         stage.setScene(scene);
         stage.show();
     }
