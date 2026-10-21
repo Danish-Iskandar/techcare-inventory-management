@@ -147,8 +147,6 @@ Run `MainApp` from the IDE, or with Maven:
 ## Team
 
 Developed by Computer Science students at Universiti Teknologi PETRONAS for TEB1043 Object-Oriented Programming.
-MUHAMMAD DANISH ISKANDAR BIN ZAHRUL-IKRAM
-MOHAMAD SHUKRI BIN ABD AJED
 
 ## License
 
